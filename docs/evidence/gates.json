@@ -1,5 +1,5 @@
 {
-  "commit": "c0981c4c6fd0421d8b8211ee15ff1835feb8ad42",
+  "commit": "ad838bc1eba9c60b87cb5ecf90786884253c9b46",
   "environment": "local",
   "gates": [
     {
@@ -62,7 +62,7 @@
       "status": "pass"
     },
     {
-      "detail": "36/36 tests passing",
+      "detail": "38/38 tests passing",
       "evidence": [
         "/home/ubuntu/work/Manus_Lego/reports/junit/unit.xml"
       ],
@@ -74,7 +74,7 @@
       "status": "pass"
     },
     {
-      "detail": "37/37 tests passing",
+      "detail": "38/38 tests passing",
       "evidence": [
         "/home/ubuntu/work/Manus_Lego/reports/junit/integration.xml",
         "/home/ubuntu/work/Manus_Lego/reports/junit/security.xml",
@@ -92,7 +92,7 @@
       "status": "pass"
     },
     {
-      "detail": "no recorded human approval for this commit; deployment and secret creation remain blocked (write docs/evidence/approvals/<id>.json with commit=c0981c4… and decision=approved)",
+      "detail": "no recorded human approval for this commit; deployment and secret creation remain blocked (write docs/evidence/approvals/<id>.json with commit=ad838bc… and decision=approved)",
       "evidence": [],
       "id": "G6",
       "name": "Owner authorization for release and secrets",
@@ -103,7 +103,7 @@
       "status": "blocked"
     }
   ],
-  "generated_at": "2026-11-20T14:11:29Z",
+  "generated_at": "2026-11-20T14:15:02Z",
   "overall": "blocked",
   "schema_version": "1.0.0"
 }

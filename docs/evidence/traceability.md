@@ -1,6 +1,6 @@
 # Requirement traceability
 
-Generated: `2026-11-20T14:11:29Z` · Commit: `c0981c4c6fd0421d8b8211ee15ff1835feb8ad42`
+Generated: `2026-11-20T14:15:02Z` · Commit: `ad838bc1eba9c60b87cb5ecf90786884253c9b46`
 
 | Requirement | Practice | Title | Status | Tests | Evidence |
 |---|---|---|---|---|---|
@@ -11,7 +11,7 @@ Generated: `2026-11-20T14:11:29Z` · Commit: `c0981c4c6fd0421d8b8211ee15ff1835fe
 | `REQ-PO-005` | PO | Release requires recorded human authorization | verified | 2/2 | 1 |
 | `REQ-PS-001` | PS | Credentials never enter the repository | verified | 3/3 | 1 |
 | `REQ-PS-002` | PS | Every external artifact is referenced with provenance | verified | 3/3 | 1 |
-| `REQ-PS-003` | PS | Release artifacts are integrity-checked | verified | 1/1 | 1 |
+| `REQ-PS-003` | PS | Release artifacts are integrity-checked | verified | 2/2 | 1 |
 | `REQ-PW-001` | PW | Contracts are defined before implementation | verified | 4/4 | 1 |
 | `REQ-PW-002` | PW | Reuse requires a pinned, reviewed component | verified | 4/4 | 1 |
 | `REQ-PW-003` | PW | Configuration and input fail closed | verified | 5/5 | 1 |
@@ -29,6 +29,6 @@ Generated: `2026-11-20T14:11:29Z` · Commit: `c0981c4c6fd0421d8b8211ee15ff1835fe
 - Partial: **0**
 - Unverified: **0**
 - Failing: **0**
-- Tests executed and linked: **89**
+- Tests executed and linked: **92**
 
 > Statuses are computed from repository state and the executed JUnit report. `partial` means at least one of implementation, passing test or evidence is missing. This table maps NIST SSDF practices to controls; it is not a certification.

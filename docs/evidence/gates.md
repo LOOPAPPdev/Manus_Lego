@@ -1,6 +1,6 @@
 # Quality gate report
 
-Generated: `2026-11-20T14:11:29Z` · Commit: `c0981c4c6fd0421d8b8211ee15ff1835feb8ad42` · Environment: `local`
+Generated: `2026-11-20T14:15:02Z` · Commit: `ad838bc1eba9c60b87cb5ecf90786884253c9b46` · Environment: `local`
 Overall: **blocked**
 
 | Gate | Name | Status | Detail |
@@ -9,9 +9,9 @@ Overall: **blocked**
 | G1 | Source, commit, license and provenance verified | **pass** | catalog provenance validation passed |
 | G2 | Runtime, dependency and platform compatibility checked | **pass** | contracts and decisions are consistent with the catalog |
 | G3 | Security review and minimal reuse approved | **pass** | no secrets detected; agent permissions within allowlist |
-| G4 | Tests written and failing before implementation | **pass** | 36/36 tests passing |
-| G5 | Integration, security scans and documentation verified | **pass** | 37/37 tests passing |
-| G6 | Owner authorization for release and secrets | **blocked** | no recorded human approval for this commit; deployment and secret creation remain blocked (write docs/evidence/approvals/<id>.json with commit=c0981c4… and decision=approved) |
+| G4 | Tests written and failing before implementation | **pass** | 38/38 tests passing |
+| G5 | Integration, security scans and documentation verified | **pass** | 38/38 tests passing |
+| G6 | Owner authorization for release and secrets | **blocked** | no recorded human approval for this commit; deployment and secret creation remain blocked (write docs/evidence/approvals/<id>.json with commit=ad838bc… and decision=approved) |
 
 ## How to read this
 

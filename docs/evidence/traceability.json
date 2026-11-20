@@ -1,6 +1,6 @@
 {
-  "commit": "c0981c4c6fd0421d8b8211ee15ff1835feb8ad42",
-  "generated_at": "2026-11-20T14:11:29Z",
+  "commit": "ad838bc1eba9c60b87cb5ecf90786884253c9b46",
+  "generated_at": "2026-11-20T14:15:02Z",
   "requirements": [
     {
       "declared_tests": [
@@ -21,7 +21,7 @@
       "status": "verified",
       "tests": [
         {
-          "duration": 0.102,
+          "duration": 0.108,
           "file": "services/orchestrator/tests/test_gates.py",
           "name": "test_every_gate_declares_requirements_and_a_detail",
           "nodeid": "services/orchestrator/tests/test_gates.py::test_every_gate_declares_requirements_and_a_detail",
@@ -51,7 +51,7 @@
           ]
         },
         {
-          "duration": 0.007,
+          "duration": 0.008,
           "file": "tests/unit/test_specification.py",
           "name": "test_requirements_have_acceptance_criteria",
           "nodeid": "tests/unit/test_specification.py::test_requirements_have_acceptance_criteria",
@@ -94,7 +94,7 @@
       "status": "verified",
       "tests": [
         {
-          "duration": 0.014,
+          "duration": 0.015,
           "file": "services/orchestrator/tests/test_config.py",
           "name": "test_committed_configuration_is_valid",
           "nodeid": "services/orchestrator/tests/test_config.py::test_committed_configuration_is_valid",
@@ -104,7 +104,7 @@
           ]
         },
         {
-          "duration": 0.034,
+          "duration": 0.039,
           "file": "services/orchestrator/tests/test_config.py",
           "name": "test_orchestrator_cannot_hold_repo_write",
           "nodeid": "services/orchestrator/tests/test_config.py::test_orchestrator_cannot_hold_repo_write",
@@ -114,7 +114,7 @@
           ]
         },
         {
-          "duration": 0.021,
+          "duration": 0.022,
           "file": "services/orchestrator/tests/test_config.py",
           "name": "test_undeclared_tool_is_rejected",
           "nodeid": "services/orchestrator/tests/test_config.py::test_undeclared_tool_is_rejected",
@@ -134,7 +134,7 @@
           ]
         },
         {
-          "duration": 0.013,
+          "duration": 0.014,
           "file": "tests/unit/test_specification.py",
           "name": "test_agent_permissions_are_bounded",
           "nodeid": "tests/unit/test_specification.py::test_agent_permissions_are_bounded",
@@ -144,7 +144,7 @@
           ]
         },
         {
-          "duration": 0.196,
+          "duration": 0.217,
           "file": "tests/integration/test_cli_workflows.py",
           "name": "test_config_validate_accepts_the_committed_configuration",
           "nodeid": "tests/integration/test_cli_workflows.py::test_config_validate_accepts_the_committed_configuration",
@@ -172,7 +172,7 @@
       "status": "verified",
       "tests": [
         {
-          "duration": 0.013,
+          "duration": 0.014,
           "file": "tests/unit/test_specification.py",
           "name": "test_toolchain_is_reproducible",
           "nodeid": "tests/unit/test_specification.py::test_toolchain_is_reproducible",
@@ -213,7 +213,7 @@
           ]
         },
         {
-          "duration": 0.0,
+          "duration": 0.001,
           "file": "tests/security/test_containers.py",
           "name": "test_base_images_are_pinned_by_digest[Dockerfile.api]",
           "nodeid": "tests/security/test_containers.py::test_base_images_are_pinned_by_digest[Dockerfile.api]",
@@ -352,7 +352,7 @@
       "status": "verified",
       "tests": [
         {
-          "duration": 0.102,
+          "duration": 0.107,
           "file": "services/orchestrator/tests/test_gates.py",
           "name": "test_blocked_gate_is_reported_as_blocked",
           "nodeid": "services/orchestrator/tests/test_gates.py::test_blocked_gate_is_reported_as_blocked",
@@ -392,7 +392,7 @@
       "status": "verified",
       "tests": [
         {
-          "duration": 0.043,
+          "duration": 0.048,
           "file": "tests/unit/test_secret_scan.py",
           "name": "test_repository_has_no_credential_patterns",
           "nodeid": "tests/unit/test_secret_scan.py::test_repository_has_no_credential_patterns",
@@ -402,7 +402,7 @@
           ]
         },
         {
-          "duration": 0.004,
+          "duration": 0.005,
           "file": "tests/unit/test_secret_scan.py",
           "name": "test_environment_files_are_not_tracked",
           "nodeid": "tests/unit/test_secret_scan.py::test_environment_files_are_not_tracked",
@@ -442,7 +442,7 @@
       "status": "verified",
       "tests": [
         {
-          "duration": 0.049,
+          "duration": 0.054,
           "file": "tests/unit/test_catalog_and_composition.py",
           "name": "test_catalog_validation_reports_valid",
           "nodeid": "tests/unit/test_catalog_and_composition.py::test_catalog_validation_reports_valid",
@@ -452,7 +452,7 @@
           ]
         },
         {
-          "duration": 0.0,
+          "duration": 0.001,
           "file": "tests/unit/test_catalog_and_composition.py",
           "name": "test_records_never_claim_completeness_without_a_commit",
           "nodeid": "tests/unit/test_catalog_and_composition.py::test_records_never_claim_completeness_without_a_commit",
@@ -476,7 +476,8 @@
     },
     {
       "declared_tests": [
-        "test_actions_are_pinned_to_commit_shas"
+        "test_actions_are_pinned_to_commit_shas",
+        "test_every_workflow_is_parseable_yaml"
       ],
       "evidence": [
         "docs/evidence/evidence-manifest.json"
@@ -489,6 +490,16 @@
       "practice": "PS",
       "status": "verified",
       "tests": [
+        {
+          "duration": 0.015,
+          "file": "tests/security/test_workflows.py",
+          "name": "test_every_workflow_is_parseable_yaml",
+          "nodeid": "tests/security/test_workflows.py::test_every_workflow_is_parseable_yaml",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PS-003"
+          ]
+        },
         {
           "duration": 0.001,
           "file": "tests/security/test_workflows.py",
@@ -541,7 +552,7 @@
           ]
         },
         {
-          "duration": 0.322,
+          "duration": 0.325,
           "file": "tests/integration/test_api_contract.py",
           "name": "test_health_reports_catalog_state",
           "nodeid": "tests/integration/test_api_contract.py::test_health_reports_catalog_state",
@@ -551,7 +562,7 @@
           ]
         },
         {
-          "duration": 0.011,
+          "duration": 0.01,
           "file": "tests/integration/test_api_contract.py",
           "name": "test_catalog_listing_is_paginated",
           "nodeid": "tests/integration/test_api_contract.py::test_catalog_listing_is_paginated",
@@ -612,7 +623,7 @@
           ]
         },
         {
-          "duration": 0.422,
+          "duration": 0.479,
           "file": "tests/integration/test_cli_workflows.py",
           "name": "test_select_and_compose_never_authorise_reuse",
           "nodeid": "tests/integration/test_cli_workflows.py::test_select_and_compose_never_authorise_reuse",
@@ -647,7 +658,7 @@
       "status": "verified",
       "tests": [
         {
-          "duration": 0.019,
+          "duration": 0.021,
           "file": "services/orchestrator/tests/test_config.py",
           "name": "test_unknown_key_is_rejected",
           "nodeid": "services/orchestrator/tests/test_config.py::test_unknown_key_is_rejected",
@@ -687,7 +698,7 @@
           ]
         },
         {
-          "duration": 0.184,
+          "duration": 0.195,
           "file": "tests/integration/test_cli_workflows.py",
           "name": "test_unknown_command_is_a_usage_error",
           "nodeid": "tests/integration/test_cli_workflows.py::test_unknown_command_is_a_usage_error",
@@ -721,7 +732,7 @@
       "status": "verified",
       "tests": [
         {
-          "duration": 0.101,
+          "duration": 0.107,
           "file": "services/orchestrator/tests/test_gates.py",
           "name": "test_passing_junit_passes_the_gate",
           "nodeid": "services/orchestrator/tests/test_gates.py::test_passing_junit_passes_the_gate",
@@ -731,7 +742,7 @@
           ]
         },
         {
-          "duration": 0.231,
+          "duration": 0.259,
           "file": "tests/unit/test_traceability_links.py",
           "name": "test_every_requirement_has_a_linked_test",
           "nodeid": "tests/unit/test_traceability_links.py::test_every_requirement_has_a_linked_test",
@@ -771,7 +782,7 @@
           ]
         },
         {
-          "duration": 0.187,
+          "duration": 0.214,
           "file": "tests/integration/test_cli_workflows.py",
           "name": "test_report_marks_requirements_partial_without_junit",
           "nodeid": "tests/integration/test_cli_workflows.py::test_report_marks_requirements_partial_without_junit",
@@ -803,7 +814,7 @@
       "status": "verified",
       "tests": [
         {
-          "duration": 0.103,
+          "duration": 0.104,
           "file": "services/orchestrator/tests/test_gates.py",
           "name": "test_missing_junit_is_not_evaluated",
           "nodeid": "services/orchestrator/tests/test_gates.py::test_missing_junit_is_not_evaluated",
@@ -813,7 +824,7 @@
           ]
         },
         {
-          "duration": 0.101,
+          "duration": 0.112,
           "file": "services/orchestrator/tests/test_gates.py",
           "name": "test_failing_junit_fails_the_gate",
           "nodeid": "services/orchestrator/tests/test_gates.py::test_failing_junit_fails_the_gate",
@@ -843,7 +854,7 @@
           ]
         },
         {
-          "duration": 0.287,
+          "duration": 0.307,
           "file": "tests/integration/test_cli_workflows.py",
           "name": "test_verify_without_evidence_reports_gaps_not_passes",
           "nodeid": "tests/integration/test_cli_workflows.py::test_verify_without_evidence_reports_gaps_not_passes",
@@ -937,7 +948,7 @@
           ]
         },
         {
-          "duration": 0.003,
+          "duration": 0.004,
           "file": "tests/security/test_containers.py",
           "name": "test_compose_applies_runtime_hardening",
           "nodeid": "tests/security/test_containers.py::test_compose_applies_runtime_hardening",
@@ -1074,7 +1085,7 @@
           ]
         },
         {
-          "duration": 0.006,
+          "duration": 0.007,
           "file": "tests/unit/test_secret_scan.py",
           "name": "test_planted_credential_is_detected",
           "nodeid": "tests/unit/test_secret_scan.py::test_planted_credential_is_detected",
@@ -1097,7 +1108,7 @@
     },
     "failing": 0,
     "partial": 0,
-    "tests_executed": 89,
+    "tests_executed": 92,
     "total": 17,
     "unverified": 0,
     "verified": 17

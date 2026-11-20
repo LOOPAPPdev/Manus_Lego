@@ -9,26 +9,26 @@
     {
       "bytes": 2988,
       "path": "docs/evidence/gates.json",
-      "sha256": "5952061a84de83835ace5d8031498f6b5a117fd9564b3e350d4a7c5a3d024a59"
+      "sha256": "79046303aea1274fbd90875c525053ea6c298473c4c5f8da64df0867e55c7c8c"
     },
     {
       "bytes": 1613,
       "path": "docs/evidence/gates.md",
-      "sha256": "3d74410ad826b9248081931db430cf8bb1214dd1bd658952b0a4eb1529e1013e"
+      "sha256": "6457f090fc07d6a616d0f5bf002e35e89bb614e6173479a90b776e1da6eecc75"
     },
     {
-      "bytes": 38083,
+      "bytes": 38492,
       "path": "docs/evidence/traceability.json",
-      "sha256": "5bd3feb8f849cdca5cffa0b946741b575120c59a37c56bfc0099bcb22beb33a6"
+      "sha256": "667e3973be9cfed3c14a47c30a2cccf4c0d7aece87aa293e1be6c0e4142de747"
     },
     {
       "bytes": 2105,
       "path": "docs/evidence/traceability.md",
-      "sha256": "1ac9b35e98f0912e1a8876332728681b55a993b79884afd916f5d5c190ef4d8c"
+      "sha256": "277562ec3155a987a81e6a653122f83784aa19dce8fba9064730fc5cc3fc1a4f"
     }
   ],
-  "commit": "c0981c4c6fd0421d8b8211ee15ff1835feb8ad42",
-  "generated_at": "2026-11-20T14:11:29Z",
+  "commit": "ad838bc1eba9c60b87cb5ecf90786884253c9b46",
+  "generated_at": "2026-11-20T14:15:02Z",
   "producer": "lego report",
   "schema_version": "1.0.0"
 }
