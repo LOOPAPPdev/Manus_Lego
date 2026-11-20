@@ -1,0 +1,9 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# Supply-chain control: pnpm blocks dependency lifecycle scripts by default.
+# Only esbuild's platform-binary install is approved. Adding an entry here is a
+# reviewed change (see docs/decisions/0002-pnpm-workspace-and-turbo.md).
+allowBuilds:
+  esbuild: true

@@ -1,0 +1,32 @@
+{
+  "name": "manus-lego",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Manus LEGO — reference-only template catalog, engineering foundation and agent orchestration monorepo.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=22.12.0",
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "verify:web": "pnpm run lint && pnpm run typecheck && pnpm run build && pnpm run test",
+    "lego": "uv run --project services/orchestrator lego",
+    "python:install": "uv sync --frozen --project services/orchestrator && uv sync --frozen --project services/rag",
+    "python:test": "uv run --project services/orchestrator pytest tests -q && uv run --project services/orchestrator pytest services/orchestrator/tests -q && uv run --project services/rag pytest services/rag/tests -q"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@types/node": "^22.20.5",
+    "eslint": "^9.39.5",
+    "turbo": "^2.11.13",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.73.0"
+  }
+}
