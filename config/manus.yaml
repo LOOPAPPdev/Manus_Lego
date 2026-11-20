@@ -1,0 +1,80 @@
+schema_version: "1.0"
+
+project:
+  id: manus-lego
+  name: Manus LEGO
+  owner: orchestrator
+  repository: LOOPAPPdev/Manus_Lego
+  default_branch: main
+
+runtime:
+  node: ">=22.12.0"
+  python: ">=3.12"
+  package_manager: pnpm
+
+catalog:
+  root: catalog
+  index: catalog/index.json
+  manifests: catalog/templates
+  coverage_label: partial_or_unverified
+
+api:
+  port: 8787
+  cors_origins:
+    - http://localhost:5173
+    - http://127.0.0.1:5173
+  read_only: true
+  rate_limit_per_minute: 120
+
+web:
+  port: 5173
+
+paths:
+  requirements: docs/specifications/requirements.md
+  traceability: docs/specifications/traceability.yaml
+  evidence_dir: docs/evidence
+  agents: agents/registry.yaml
+  team_schema: config/TEAMSCHEMA.yaml
+  security_policy: config/security.yaml
+
+commands:
+  discover: lego discover
+  inspect: lego inspect
+  index: lego index
+  select: lego select
+  compose: lego compose
+  verify: lego verify
+  report: lego report
+
+# Gate definitions are declarative here and evaluated by
+# `services/orchestrator/src/lego_orchestrator/gates.py`. A gate is only
+# `pass` when the evaluator can point at a produced artifact.
+gates:
+  - id: G0
+    name: Specification and boundaries approved
+    owner: orchestrator
+    blocking: true
+  - id: G1
+    name: Source, commit, license and provenance verified
+    owner: researcher
+    blocking: true
+  - id: G2
+    name: Runtime, dependency and platform compatibility checked
+    owner: architect
+    blocking: true
+  - id: G3
+    name: Security review and minimal reuse approved
+    owner: quality_auditor
+    blocking: true
+  - id: G4
+    name: Tests written and failing before implementation
+    owner: engineering_agent
+    blocking: true
+  - id: G5
+    name: Integration, security scans and documentation verified
+    owner: quality_auditor
+    blocking: true
+  - id: G6
+    name: Owner authorization for release and secrets
+    owner: human_owner
+    blocking: true

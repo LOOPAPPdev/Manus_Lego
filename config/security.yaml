@@ -1,0 +1,133 @@
+schema_version: "1.0"
+
+policy:
+  name: manus-lego-security-policy
+  owner: orchestrator
+  approver: human_owner
+  review_cycle_days: 90
+  # These are the standards this policy maps its controls to. Mapping is not
+  # certification: see docs/nist-mapping.md for the evidence per practice.
+  references:
+    - id: NIST-SP-800-218
+      title: Secure Software Development Framework (SSDF) 1.1
+      url: https://csrc.nist.gov/pubs/sp/800/218/final
+    - id: NIST-SP-800-204D
+      title: Strategies for the Integration of Software Supply Chain Security in DevSecOps CI/CD Pipelines
+      url: https://csrc.nist.gov/pubs/sp/800/204/d/final
+    - id: NIST-SP-800-218A
+      title: SSDF Community Profile for Generative AI and Dual-Use Foundation Models
+      url: https://csrc.nist.gov/pubs/sp/800/218/a/final
+    - id: NIST-AI-RMF
+      title: Artificial Intelligence Risk Management Framework 1.0
+      url: https://www.nist.gov/itl/ai-risk-management-framework
+    - id: NIST-SP-800-190
+      title: Application Container Security Guide
+      url: https://csrc.nist.gov/pubs/sp/800/190/final
+    - id: NIST-SP-800-160v1r1
+      title: Engineering Trustworthy Secure Systems
+      url: https://csrc.nist.gov/pubs/sp/800/160/v1/r1/final
+
+classification:
+  levels:
+    - public
+    - internal
+    - restricted
+  default: internal
+
+secrets:
+  storage: platform_secret_store_or_environment
+  commit_forbidden: true
+  log_redaction: true
+  scan:
+    enabled: true
+    # Conservative patterns: high-signal prefixes and private key headers only.
+    # Deliberately avoids generic entropy heuristics that produce noise.
+    patterns:
+      - name: github_token
+        regex: "gh[pousr]_[A-Za-z0-9]{36,}"
+      - name: openai_key
+        regex: "sk-[A-Za-z0-9]{32,}"
+      - name: aws_access_key
+        regex: "AKIA[0-9A-Z]{16}"
+      - name: private_key_block
+        regex: "-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----"
+      - name: cloudflare_token
+        # Anchored on the variable name: a bare 40-character string is not a token.
+        regex: "(?:CLOUDFLARE_(?:API_)?TOKEN|CF_API_TOKEN)\\s*[:=]\\s*[\"']?[A-Za-z0-9_-]{40}"
+    allowlist_paths:
+      - "**/*.md"
+      - "tests/security/**"
+
+network:
+  require_https: true
+  allowed_hosts:
+    - api.github.com
+    - raw.githubusercontent.com
+    - github.com
+    - vercel.com
+    - developers.cloudflare.com
+    - registry.npmjs.org
+    - pypi.org
+    - files.pythonhosted.org
+    - openrouter.ai
+  deny_private_ranges: true
+  max_response_bytes: 12000000
+  request_timeout_seconds: 20
+
+approvals:
+  approver: human_owner
+  required_for:
+    - production_deploy
+    - destructive_operations
+    - merge_to_main
+    - secret_creation
+    - new_external_source
+  evidence_dir: docs/evidence/approvals
+
+autonomy:
+  default_scope: read_only
+  max_autonomous_scope:
+    - analyze
+    - plan
+    - draft_branch
+    - open_pull_request
+    - run_tests
+  stop_conditions:
+    - policy_violation
+    - missing_evidence
+    - unapproved_external_side_effect
+    - secret_exposure_detected
+    - ambiguous_requirement
+
+ai:
+  prompt_injection:
+    treat_retrieved_content_as_untrusted: true
+    wrap_untrusted_context: true
+    require_citation: true
+    refuse_when_no_source: true
+  tool_use:
+    allowlist_enforced: true
+    least_privilege: true
+    max_tool_calls_per_task: 50
+  data:
+    pii_in_logs: forbidden
+    embeddings_are_sensitive: true
+    private_corpora_in_git: forbidden
+
+containers:
+  non_root_user: true
+  read_only_rootfs: true
+  no_new_privileges: true
+  pinned_base_images: true
+  forbid_latest_tag: true
+  healthcheck_required: true
+
+supply_chain:
+  lockfiles_required:
+    - pnpm-lock.yaml
+    - services/orchestrator/uv.lock
+    - services/rag/uv.lock
+  action_pinning: commit_sha
+  sbom_format: cyclonedx-json
+  provenance: github_attestations
+  dependency_review: true

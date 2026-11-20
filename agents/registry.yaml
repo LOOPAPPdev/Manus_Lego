@@ -1,0 +1,89 @@
+schema_version: "1.0"
+
+# Runtime registry. `config/TEAMSCHEMA.yaml` is authoritative for authority and
+# permissions; this file binds each declared agent to a prompt and its outputs.
+# `lego config validate` fails if the two disagree.
+
+orchestrator: agenteorchsenior
+
+agents:
+  - id: orchestrator
+    team_agent: orchestrator
+    purpose: Coordinate the run, enforce policy, record evidence and escalate.
+    prompt: agents/orchestrator/AGENT.md
+    tools:
+      - catalog_read
+      - repo_read
+      - evidence_write
+    outputs:
+      - docs/evidence
+    approval_required: []
+
+  - id: researcher
+    team_agent: researcher
+    purpose: Discover public sources and record provenance without executing them.
+    prompt: agents/researcher/AGENT.md
+    tools:
+      - web
+      - github
+      - catalog_read
+    outputs:
+      - reports/scouts
+    approval_required: []
+
+  - id: architect
+    team_agent: architect
+    purpose: Convert requirements into contracts, decisions and an integration plan.
+    prompt: agents/architect/AGENT.md
+    tools:
+      - catalog_read
+      - diagrams
+      - repo_read
+    outputs:
+      - docs/decisions
+      - docs/architecture.mmd
+    approval_required: []
+
+  - id: rag_engineer
+    team_agent: rag_engineer
+    purpose: Build and evaluate retrieval, citations and guardrails.
+    prompt: agents/rag-engineer/AGENT.md
+    tools:
+      - python
+      - repo_read
+      - vector_store
+    outputs:
+      - services/rag
+      - tests/evaluations
+    approval_required: []
+
+  - id: engineering_agent
+    team_agent: engineering_agent
+    purpose: Implement test-first changes on a dedicated branch.
+    prompt: agents/engineering-agent/AGENT.md
+    tools:
+      - git
+      - cli
+      - python
+      - node
+      - repo_write
+    outputs:
+      - apps
+      - packages
+      - services
+      - tests
+    approval_required:
+      - merge_to_main
+
+  - id: quality_auditor
+    team_agent: quality_auditor
+    purpose: Independently verify gates, tests and security evidence.
+    prompt: agents/auditor/AGENT.md
+    tools:
+      - tests
+      - security_scans
+      - repo_read
+      - evidence_write
+    outputs:
+      - docs/evidence
+    approval_required: []

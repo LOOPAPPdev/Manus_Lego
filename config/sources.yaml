@@ -1,0 +1,51 @@
+schema_version: "1.0"
+
+# Source allowlist. `catalog/sources.json` remains the machine input consumed by
+# the existing catalog engine; this file adds the review metadata the governance
+# plane needs (license posture, trust level, review owner) without duplicating
+# the discovery rules.
+
+policy:
+  default_trust: untrusted
+  require_https: true
+  require_pinned_commit_for_reuse: true
+  execute_candidate_code: false
+  max_sources: 10
+
+sources:
+  - id: cloudflare-templates
+    provider: cloudflare
+    repository: cloudflare/templates
+    url: https://github.com/cloudflare/templates
+    trust: official_vendor
+    license_posture: per_template_review
+    reviewed_by: researcher
+    reviewed_at: "2026-11-20"
+    role: canonical_cloudflare_template_monorepo
+  - id: vercel-examples
+    provider: vercel
+    repository: vercel/examples
+    url: https://github.com/vercel/examples
+    trust: official_vendor
+    license_posture: per_example_review
+    reviewed_by: researcher
+    reviewed_at: "2026-11-20"
+    role: official_vercel_examples_monorepo
+  - id: vercel-gallery
+    provider: vercel
+    repository: vercel/templates-gallery
+    url: https://vercel.com/templates
+    trust: discovery_only
+    license_posture: unknown
+    reviewed_by: researcher
+    reviewed_at: "2026-11-20"
+    role: public_gallery_discovery
+    limitations:
+      - Pagination is not exhaustive; coverage stays labelled partial.
+      - Gallery entries may reference external repositories not mirrored by Vercel.
+
+rejected_sources:
+  - id: authenticated-cloudflare-dashboard
+    reason: Requires account credentials; private dashboard paths are prohibited by policy.
+  - id: unverified-community-mirrors
+    reason: No provenance chain to an upstream maintainer.
