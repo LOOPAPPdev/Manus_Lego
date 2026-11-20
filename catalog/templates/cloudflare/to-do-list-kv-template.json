@@ -1,0 +1,63 @@
+{
+  "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+  "commands": {},
+  "description": "Directory name verified; technical attributes not yet inspected",
+  "features": [],
+  "id": "cloudflare:seed:to-do-list-kv-template",
+  "inventory": {
+    "complete": false,
+    "file_count": 0,
+    "files": [],
+    "metadata_paths": {}
+  },
+  "license": {
+    "file_path": null,
+    "status": "needs_review"
+  },
+  "platform_metadata": {
+    "listed_in_templates_json": true
+  },
+  "provenance": {
+    "feature_basis": "not_inspected",
+    "inspected_files": [],
+    "origin": "cloudflare_templates_json",
+    "source_ref": "main (mutable; not pinned)"
+  },
+  "provider": "cloudflare",
+  "readme": {
+    "excerpt": null,
+    "path": null,
+    "url": null
+  },
+  "schema_version": "1.0.0",
+  "source": {
+    "commit": null,
+    "path": "to-do-list-kv-template",
+    "repository": "cloudflare/templates",
+    "repository_url": "https://github.com/cloudflare/templates",
+    "source_url": "https://github.com/cloudflare/templates/tree/main/to-do-list-kv-template"
+  },
+  "stack": {
+    "bindings": [],
+    "dependencies": {},
+    "ecosystems": [],
+    "frameworks": [],
+    "languages": [],
+    "package_manager": "unknown",
+    "products": [],
+    "runtime_config": []
+  },
+  "status": "discovered_unverified",
+  "tags": [
+    "cloudflare",
+    "do",
+    "kv",
+    "list",
+    "template",
+    "to"
+  ],
+  "title": "To Do List Kv Template",
+  "warnings": [
+    "Bootstrap discovery only; run live index to pin a commit and inspect files"
+  ]
+}
