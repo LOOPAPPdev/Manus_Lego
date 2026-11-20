@@ -1,0 +1,5 @@
+# Cloudflare Pages project configuration (optional deployment target).
+# Deploy with: wrangler pages deploy apps/web/dist --project-name manus-lego-web
+name = "manus-lego-web"
+compatibility_date = "2026-11-01"
+pages_build_output_dir = "../../../apps/web/dist"

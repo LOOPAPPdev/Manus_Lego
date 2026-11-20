@@ -1,0 +1,64 @@
+# syntax=docker/dockerfile:1.7
+#
+# The `lego` governance CLI. It reads the repository, runs pytest and writes evidence,
+# so the image needs git and the Python toolchain at build time — and neither the
+# compiler cache nor root at runtime.
+
+ARG PYTHON_IMAGE=python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+
+# ---------- build ----------
+FROM ${PYTHON_IMAGE} AS build
+
+ENV UV_LINK_MODE=copy \
+    UV_COMPILE_BYTECODE=1 \
+    UV_PROJECT_ENVIRONMENT=/opt/venv
+
+WORKDIR /repo
+
+# uv is pinned by version; the image base is pinned by digest.
+RUN pip install --no-cache-dir uv==0.13.7
+
+COPY services/orchestrator/pyproject.toml services/orchestrator/uv.lock ./services/orchestrator/
+RUN uv sync --project services/orchestrator --frozen --no-dev --no-install-project
+
+COPY services/orchestrator ./services/orchestrator
+RUN uv sync --project services/orchestrator --frozen --no-dev
+
+# ---------- runtime ----------
+FROM ${PYTHON_IMAGE} AS runtime
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PATH=/opt/venv/bin:$PATH \
+    LEGO_REPO_ROOT=/repo
+
+# git is required: the CLI resolves the commit and lists tracked files for the secret scan.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git ca-certificates \
+    && rm -rf /var/lib/apt/lists/* \
+    && groupadd --gid 10001 lego \
+    && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin lego
+
+WORKDIR /repo
+
+COPY --from=build /opt/venv /opt/venv
+COPY --from=build /repo/services/orchestrator/src ./services/orchestrator/src
+COPY config ./config
+COPY agents ./agents
+COPY schemas ./schemas
+COPY catalog ./catalog
+COPY scripts ./scripts
+COPY docs ./docs
+COPY workflows ./workflows
+
+RUN mkdir -p /repo/docs/evidence /repo/reports && chown -R lego:lego /repo
+
+USER lego
+
+HEALTHCHECK --interval=60s --timeout=10s --start-period=5s --retries=3 \
+    CMD ["lego", "config", "validate"]
+
+STOPSIGNAL SIGTERM
+
+ENTRYPOINT ["lego"]
+CMD ["config", "validate"]

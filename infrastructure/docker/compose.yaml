@@ -1,0 +1,92 @@
+# Local / staging stack. Every service runs read-only, without added capabilities and
+# without privilege escalation. Images are built from this repository; production deploys
+# the digest produced by release.yml, not a local build.
+#
+#   docker compose -f infrastructure/docker/compose.yaml up --build
+#   docker compose -f infrastructure/docker/compose.yaml --profile jobs run --rm rag-indexer
+#
+name: manus-lego
+
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/Dockerfile.api
+    image: manus-lego-api:local
+    read_only: true
+    user: "1000:1000"
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    environment:
+      LEGO_API_PORT: "8787"
+      LEGO_API_HOST: 0.0.0.0
+      LEGO_LOG_LEVEL: info
+      NODE_ENV: production
+    ports:
+      - "8787:8787"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8787/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks: [edge]
+
+  web:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/Dockerfile.web
+    image: manus-lego-web:local
+    read_only: true
+    user: "101:101"
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:size=8m,mode=1777
+      - /var/cache/nginx:size=8m
+    ports:
+      - "8080:8080"
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+    networks: [edge]
+
+  # Batch job, not a daemon: `lego-rag` is a CLI. Opt-in via --profile jobs so a normal
+  # `up` does not start a container that is meant to exit.
+  rag-indexer:
+    profiles: ["jobs"]
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/Dockerfile.rag
+    image: manus-lego-rag:local
+    read_only: true
+    user: "10002:10002"
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    volumes:
+      - rag-data:/data:rw
+    command: ["ingest", "fixtures/corpus", "--store", "/data/rag-store.sqlite3"]
+    restart: "no"
+    networks: [jobs]
+
+volumes:
+  rag-data:
+
+networks:
+  edge:
+  jobs:
+    internal: true

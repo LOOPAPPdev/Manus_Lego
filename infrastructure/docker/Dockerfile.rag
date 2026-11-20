@@ -1,0 +1,55 @@
+# syntax=docker/dockerfile:1.7
+#
+# Retrieval service image. `lego-rag` is a batch CLI (ingest / query / eval), not a
+# daemon: the compose file runs it as an opt-in job, and this image therefore ships a
+# smoke-check health probe rather than an HTTP listener. That is deliberate — inventing a
+# server here would add an unauthenticated network surface with no requirement behind it.
+
+ARG PYTHON_IMAGE=python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+
+# ---------- build ----------
+FROM ${PYTHON_IMAGE} AS build
+
+ENV UV_LINK_MODE=copy \
+    UV_COMPILE_BYTECODE=1 \
+    UV_PROJECT_ENVIRONMENT=/opt/venv
+
+WORKDIR /repo
+
+RUN pip install --no-cache-dir uv==0.13.7
+
+COPY services/rag/pyproject.toml services/rag/uv.lock ./services/rag/
+RUN uv sync --project services/rag --frozen --no-dev --no-install-project
+
+COPY services/rag ./services/rag
+RUN uv sync --project services/rag --frozen --no-dev
+
+# ---------- runtime ----------
+FROM ${PYTHON_IMAGE} AS runtime
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PATH=/opt/venv/bin:$PATH \
+    LEGO_RAG_STORE=/data/rag-store.sqlite3
+
+RUN groupadd --gid 10002 rag \
+    && useradd --uid 10002 --gid 10002 --no-create-home --shell /usr/sbin/nologin rag \
+    && mkdir -p /data && chown rag:rag /data
+
+WORKDIR /app
+
+COPY --from=build /opt/venv /opt/venv
+COPY --from=build /repo/services/rag/src ./src
+COPY --from=build /repo/services/rag/tests/fixtures ./fixtures
+
+USER rag
+
+VOLUME ["/data"]
+
+HEALTHCHECK --interval=60s --timeout=10s --start-period=5s --retries=3 \
+    CMD ["python", "-c", "import lego_rag; print(lego_rag.__name__)"]
+
+STOPSIGNAL SIGTERM
+
+ENTRYPOINT ["lego-rag"]
+CMD ["--help"]
