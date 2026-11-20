@@ -1,0 +1,38 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://github.com/LOOPAPPdev/Manus_Lego/blob/main/schemas/template.schema.json",
+  "title":"Manus LEGO Template Reference",
+  "type":"object",
+  "required":["schema_version","id","provider","title","description","catalog_url","source","readme","inventory","stack","commands","features","tags","license","provenance","status","warnings"],
+  "properties":{
+    "schema_version":{"type":"string","const":"1.0.0"},
+    "id":{"type":"string","minLength":3},
+    "provider":{"enum":["cloudflare","vercel"]},
+    "title":{"type":"string"},
+    "description":{"type":"string"},
+    "catalog_url":{"type":"string","format":"uri"},
+    "source":{"type":"object","required":["repository","path","commit","repository_url","source_url"],"properties":{
+      "repository":{"type":"string","pattern":"^[^/]+/[^/]+$"},
+      "path":{"type":"string"},
+      "commit":{"type":["string","null"]},
+      "repository_url":{"type":"string"},
+      "source_url":{"type":"string"}
+    }},
+    "readme":{"type":"object","required":["path","url","excerpt"],"properties":{"path":{"type":["string","null"]},"url":{"type":["string","null"]},"excerpt":{"type":["string","null"]}}},
+    "inventory":{"type":"object","required":["complete","file_count","files","metadata_paths"],"properties":{
+      "complete":{"type":"boolean"},
+      "file_count":{"type":"integer","minimum":0},
+      "files":{"type":"array","items":{"type":"object","required":["path","sha","url"],"properties":{"path":{"type":"string"},"sha":{"type":["string","null"]},"size":{"type":["integer","null"]},"url":{"type":"string"}}}},
+      "metadata_paths":{"type":"object"}
+    }},
+    "stack":{"type":"object","required":["languages","frameworks","dependencies","package_manager","products","bindings","ecosystems","runtime_config"],"properties":{"languages":{"type":"array","items":{"type":"string"}},"frameworks":{"type":"array","items":{"type":"string"}},"dependencies":{"type":"object","additionalProperties":{"type":"string"}},"package_manager":{"type":"string"},"products":{"type":"array","items":{"type":"string"}},"bindings":{"type":"array","items":{"type":"string"}},"ecosystems":{"type":"array","items":{"type":"string"}},"runtime_config":{"type":"array","items":{"type":"string"}}}},
+    "commands":{"type":"object","additionalProperties":{"type":"string"}},
+    "features":{"type":"array","items":{"type":"string"}},
+    "tags":{"type":"array","items":{"type":"string"}},
+    "platform_metadata":{"type":"object"},
+    "license":{"type":"object","required":["status","file_path"]},
+    "provenance":{"type":"object","required":["origin","source_ref","inspected_files","feature_basis"]},
+    "status":{"enum":["discovered_unverified","reference_only","enriched"]},
+    "warnings":{"type":"array","items":{"type":"string"}}
+  }
+}

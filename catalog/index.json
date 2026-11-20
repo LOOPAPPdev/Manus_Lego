@@ -1,0 +1,1223 @@
+{
+  "coverage": "bootstrap_discovery_only",
+  "schema_version": "1.0.0",
+  "scope": "public_reference_index",
+  "source_status": [
+    {
+      "commit": null,
+      "count": 41,
+      "provider": "cloudflare",
+      "repo": "cloudflare/templates",
+      "state": "official_templates_json_directory_names"
+    },
+    {
+      "commit": null,
+      "count": 1,
+      "provider": "vercel",
+      "repo": "withastro/astro",
+      "state": "single_gallery_listing_inspected"
+    }
+  ],
+  "template_count": 42,
+  "templates": [
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:agent-commerce-analytics-template",
+      "path": "agent-commerce-analytics-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/agent-commerce-analytics-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "agent",
+        "analytics",
+        "cloudflare",
+        "commerce",
+        "template"
+      ],
+      "title": "Agent Commerce Analytics Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:agent-visibility-template",
+      "path": "agent-visibility-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/agent-visibility-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "agent",
+        "cloudflare",
+        "template",
+        "visibility"
+      ],
+      "title": "Agent Visibility Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:ai-brand-visibility-template",
+      "path": "ai-brand-visibility-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/ai-brand-visibility-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "ai",
+        "brand",
+        "cloudflare",
+        "template",
+        "visibility"
+      ],
+      "title": "Ai Brand Visibility Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Build a personal website, blog, or portfolio with Astro.",
+      "features": [],
+      "id": "cloudflare:seed:astro-blog-starter-template",
+      "path": "astro-blog-starter-template",
+      "platform_metadata": {
+        "label": "Astro Framework Starter",
+        "listed_in_templates_json": true,
+        "products": [
+          "Workers"
+        ],
+        "publish": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template",
+      "stack": {
+        "frameworks": [
+          "astro"
+        ],
+        "languages": [
+          "TypeScript",
+          "Astro"
+        ],
+        "products": [
+          "cloudflare-workers"
+        ]
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "astro",
+        "blog",
+        "cloudflare",
+        "starter",
+        "template"
+      ],
+      "title": "Astro Blog Starter Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:chanfana-openapi-template",
+      "path": "chanfana-openapi-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/chanfana-openapi-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "chanfana",
+        "cloudflare",
+        "openapi",
+        "template"
+      ],
+      "title": "Chanfana Openapi Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:commerce-llms-txt-template",
+      "path": "commerce-llms-txt-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/commerce-llms-txt-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "commerce",
+        "llms",
+        "template",
+        "txt"
+      ],
+      "title": "Commerce Llms Txt Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:containers-template",
+      "path": "containers-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/containers-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "containers",
+        "template"
+      ],
+      "title": "Containers Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:d1-starter-sessions-api-template",
+      "path": "d1-starter-sessions-api-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/d1-starter-sessions-api-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "api",
+        "cloudflare",
+        "d1",
+        "sessions",
+        "starter",
+        "template"
+      ],
+      "title": "D1 Starter Sessions Api Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:d1-template",
+      "path": "d1-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/d1-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "d1",
+        "template"
+      ],
+      "title": "D1 Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:durable-chat-template",
+      "path": "durable-chat-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/durable-chat-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "chat",
+        "cloudflare",
+        "durable",
+        "template"
+      ],
+      "title": "Durable Chat Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:email-routing-template",
+      "path": "email-routing-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/email-routing-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "email",
+        "routing",
+        "template"
+      ],
+      "title": "Email Routing Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:email-sending-template",
+      "path": "email-sending-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/email-sending-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "email",
+        "sending",
+        "template"
+      ],
+      "title": "Email Sending Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:grpc-container-template",
+      "path": "grpc-container-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/grpc-container-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "container",
+        "grpc",
+        "template"
+      ],
+      "title": "Grpc Container Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:hello-world-do-template",
+      "path": "hello-world-do-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/hello-world-do-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "do",
+        "hello",
+        "template",
+        "world"
+      ],
+      "title": "Hello World Do Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:internal-sites-template",
+      "path": "internal-sites-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/internal-sites-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "internal",
+        "sites",
+        "template"
+      ],
+      "title": "Internal Sites Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:llm-chat-app-template",
+      "path": "llm-chat-app-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/llm-chat-app-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "app",
+        "chat",
+        "cloudflare",
+        "llm",
+        "template"
+      ],
+      "title": "Llm Chat App Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:microfrontend-template",
+      "path": "microfrontend-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/microfrontend-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "microfrontend",
+        "template"
+      ],
+      "title": "Microfrontend Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:multiplayer-globe-template",
+      "path": "multiplayer-globe-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/multiplayer-globe-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "globe",
+        "multiplayer",
+        "template"
+      ],
+      "title": "Multiplayer Globe Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:mysql-hyperdrive-template",
+      "path": "mysql-hyperdrive-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/mysql-hyperdrive-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "hyperdrive",
+        "mysql",
+        "template"
+      ],
+      "title": "Mysql Hyperdrive Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:next-starter-template",
+      "path": "next-starter-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/next-starter-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "next",
+        "starter",
+        "template"
+      ],
+      "title": "Next Starter Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:nlweb-template",
+      "path": "nlweb-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/nlweb-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "nlweb",
+        "template"
+      ],
+      "title": "Nlweb Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:nodejs-http-server-template",
+      "path": "nodejs-http-server-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/nodejs-http-server-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "http",
+        "nodejs",
+        "server",
+        "template"
+      ],
+      "title": "Nodejs Http Server Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:openauth-template",
+      "path": "openauth-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/openauth-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "openauth",
+        "template"
+      ],
+      "title": "Openauth Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:postgres-hyperdrive-template",
+      "path": "postgres-hyperdrive-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/postgres-hyperdrive-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "hyperdrive",
+        "postgres",
+        "template"
+      ],
+      "title": "Postgres Hyperdrive Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:r2-explorer-template",
+      "path": "r2-explorer-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/r2-explorer-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "explorer",
+        "r2",
+        "template"
+      ],
+      "title": "R2 Explorer Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:react-postgres-fullstack-template",
+      "path": "react-postgres-fullstack-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/react-postgres-fullstack-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "fullstack",
+        "postgres",
+        "react",
+        "template"
+      ],
+      "title": "React Postgres Fullstack Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:react-router-hono-fullstack-template",
+      "path": "react-router-hono-fullstack-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/react-router-hono-fullstack-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "fullstack",
+        "hono",
+        "react",
+        "router",
+        "template"
+      ],
+      "title": "React Router Hono Fullstack Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:react-router-postgres-ssr-template",
+      "path": "react-router-postgres-ssr-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/react-router-postgres-ssr-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "postgres",
+        "react",
+        "router",
+        "ssr",
+        "template"
+      ],
+      "title": "React Router Postgres Ssr Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:react-router-starter-template",
+      "path": "react-router-starter-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/react-router-starter-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "react",
+        "router",
+        "starter",
+        "template"
+      ],
+      "title": "React Router Starter Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:react-starter-template",
+      "path": "react-starter-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/react-starter-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "react",
+        "starter",
+        "template"
+      ],
+      "title": "React Starter Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:remix-starter-template",
+      "path": "remix-starter-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/remix-starter-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "remix",
+        "starter",
+        "template"
+      ],
+      "title": "Remix Starter Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:saas-admin-template",
+      "path": "saas-admin-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/saas-admin-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "admin",
+        "cloudflare",
+        "saas",
+        "template"
+      ],
+      "title": "Saas Admin Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:text-to-image-template",
+      "path": "text-to-image-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/text-to-image-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "image",
+        "template",
+        "text",
+        "to"
+      ],
+      "title": "Text To Image Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:to-do-list-kv-template",
+      "path": "to-do-list-kv-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/to-do-list-kv-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "do",
+        "kv",
+        "list",
+        "template",
+        "to"
+      ],
+      "title": "To Do List Kv Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:vite-react-template",
+      "path": "vite-react-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/vite-react-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "react",
+        "template",
+        "vite"
+      ],
+      "title": "Vite React Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:voice-agent-template",
+      "path": "voice-agent-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/voice-agent-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "agent",
+        "cloudflare",
+        "template",
+        "voice"
+      ],
+      "title": "Voice Agent Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:worker-publisher-template",
+      "path": "worker-publisher-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/worker-publisher-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "publisher",
+        "template",
+        "worker"
+      ],
+      "title": "Worker Publisher Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:workers-builds-notifications-template",
+      "path": "workers-builds-notifications-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/workers-builds-notifications-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "builds",
+        "cloudflare",
+        "notifications",
+        "template",
+        "workers"
+      ],
+      "title": "Workers Builds Notifications Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:workers-for-platforms-template",
+      "path": "workers-for-platforms-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/workers-for-platforms-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "for",
+        "platforms",
+        "template",
+        "workers"
+      ],
+      "title": "Workers For Platforms Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:workflows-starter-template",
+      "path": "workflows-starter-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/workflows-starter-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "starter",
+        "template",
+        "workflows"
+      ],
+      "title": "Workflows Starter Template"
+    },
+    {
+      "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+      "commit": null,
+      "complete": false,
+      "description": "Directory name verified; technical attributes not yet inspected",
+      "features": [],
+      "id": "cloudflare:seed:x402-proxy-template",
+      "path": "x402-proxy-template",
+      "platform_metadata": {
+        "listed_in_templates_json": true
+      },
+      "provider": "cloudflare",
+      "repository": "cloudflare/templates",
+      "source_url": "https://github.com/cloudflare/templates/tree/main/x402-proxy-template",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "cloudflare",
+        "proxy",
+        "template",
+        "x402"
+      ],
+      "title": "X402 Proxy Template"
+    },
+    {
+      "catalog_url": "https://vercel.com/templates/astro/astro-blog",
+      "commit": null,
+      "complete": false,
+      "description": "An ultra-minimal personal site and blog built with Astro (Vercel gallery description)",
+      "features": [],
+      "id": "vercel:seed:https-vercel-com-templates-astro-astro-blog",
+      "path": "",
+      "platform_metadata": {},
+      "provider": "vercel",
+      "repository": "withastro/astro",
+      "source_url": "https://github.com/withastro/astro",
+      "stack": {
+        "frameworks": [],
+        "languages": [],
+        "products": []
+      },
+      "status": "discovered_unverified",
+      "tags": [
+        "",
+        "vercel"
+      ],
+      "title": "Astro Blog"
+    }
+  ]
+}
