@@ -1,0 +1,95 @@
+# Alert rules for the API and the governance artifacts.
+#
+# Every alert names the runbook section that tells the operator what to do. An alert
+# without a documented action is noise.
+
+groups:
+  - name: manus-lego.api
+    interval: 30s
+    rules:
+      - alert: ApiDown
+        expr: up{job="manus-lego-api"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Catalog API is not responding"
+          runbook: "docs/operations/runbook.md#2-health-and-signals"
+
+      - alert: ApiHighErrorRate
+        expr: |
+          sum(rate(http_requests_total{job="manus-lego-api",status=~"5.."}[5m]))
+            / sum(rate(http_requests_total{job="manus-lego-api"}[5m])) > 0.01
+        for: 5m
+        labels:
+          severity: high
+        annotations:
+          summary: "More than 1% of API responses are 5xx"
+          description: "The API only reads files; a 5xx means a broken artifact or a bug."
+          runbook: "docs/operations/runbook.md#2-health-and-signals"
+
+      - alert: ApiLatencyHigh
+        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{job="manus-lego-api"}[5m])) by (le)) > 0.5
+        for: 10m
+        labels:
+          severity: medium
+        annotations:
+          summary: "p95 latency above 500 ms"
+          description: "Catalog reads are in-memory and mtime-cached; this indicates a regression."
+          runbook: "docs/operations/runbook.md#2-health-and-signals"
+
+      - alert: ApiRateLimitingClients
+        expr: sum(rate(http_requests_total{job="manus-lego-api",status="429"}[5m])) > 1
+        for: 10m
+        labels:
+          severity: medium
+        annotations:
+          summary: "Clients are being rate limited"
+          description: "Either abuse, or a client ignoring Retry-After."
+          runbook: "docs/operations/runbook.md#2-health-and-signals"
+
+  - name: manus-lego.governance
+    interval: 60s
+    rules:
+      - alert: CatalogArtifactStale
+        expr: time() - catalog_artifact_mtime_seconds > 604800
+        for: 1h
+        labels:
+          severity: medium
+        annotations:
+          summary: "Catalog index is more than 7 days old"
+          description: "catalog-refresh.yml has not produced a reviewed update."
+          runbook: "docs/operations/runbook.md#1-everyday-commands"
+
+      - alert: GateFailing
+        expr: gate_status{gate=~"G[0-6]"} == 1
+        for: 5m
+        labels:
+          severity: high
+        annotations:
+          summary: "Quality gate {{ $labels.gate }} is failing"
+          description: "A control regressed. G6 blocked is expected and is not this alert."
+          runbook: "docs/operations/runbook.md#3-deploy"
+
+  - name: manus-lego.rag
+    interval: 60s
+    rules:
+      - alert: RagRefusalRateHigh
+        expr: rag_refusal_rate > 0.5
+        for: 15m
+        labels:
+          severity: medium
+        annotations:
+          summary: "More than half of retrieval queries are refused"
+          description: "Retrieval broke, or the corpus changed under the evaluation questions."
+          runbook: "docs/operations/runbook.md#2-health-and-signals"
+
+      - alert: RagGuardrailFindings
+        expr: increase(rag_guardrail_findings_total[1h]) > 0
+        for: 5m
+        labels:
+          severity: high
+        annotations:
+          summary: "Instruction-shaped content was detected in retrieved documents"
+          description: "Someone published content that tries to steer the model. Inspect the source."
+          runbook: "docs/security/threat-model.md#t1--prompt-injection-through-retrieved-or-catalogued-content"

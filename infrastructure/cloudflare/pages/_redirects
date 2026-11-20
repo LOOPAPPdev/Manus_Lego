@@ -1,0 +1,2 @@
+# SPA history fallback: every unknown path renders the app shell.
+/*    /index.html   200

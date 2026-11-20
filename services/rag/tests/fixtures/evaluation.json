@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Labelled questions over the synthetic corpus. Used by pytest and by `lego-rag eval`.",
+  "cases": [
+    {
+      "question": "Which template demonstrates the D1 Sessions API for read replication?",
+      "expected_document_ids": ["d1-sessions"],
+      "k": 4,
+      "clearance": "public"
+    },
+    {
+      "question": "How does the Workers AI chat template stream responses?",
+      "expected_document_ids": ["workers-ai-chat"],
+      "k": 4,
+      "clearance": "public"
+    },
+    {
+      "question": "What is required before a release can be deployed?",
+      "expected_document_ids": ["release-process"],
+      "k": 4,
+      "clearance": "internal"
+    },
+    {
+      "question": "Acme incident escalation pager acknowledgement time",
+      "expected_document_ids": ["incident-runbook"],
+      "k": 4,
+      "clearance": "restricted",
+      "tenants": ["acme"]
+    },
+    {
+      "question": "What must a catalog contribution include?",
+      "expected_document_ids": ["poisoned-note"],
+      "k": 4,
+      "clearance": "public"
+    }
+  ]
+}

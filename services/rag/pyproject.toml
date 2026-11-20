@@ -1,0 +1,49 @@
+[project]
+name = "lego-rag"
+version = "0.1.0"
+description = "Permissioned retrieval with citations, guardrails and measurable quality for Manus LEGO."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "UNLICENSED" }
+dependencies = [
+  "pydantic>=2.9,<3",
+]
+
+[project.scripts]
+lego-rag = "lego_rag.cli:main"
+
+[dependency-groups]
+dev = [
+  "pytest>=8.3,<9",
+  "ruff>=0.7,<1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lego_rag"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "S", "RUF"]
+ignore = [
+  "E501",   # line length is enforced by `ruff format`
+  "S101",
+  "S603",
+  "S607",
+  "SIM108",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "E501"]

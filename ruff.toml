@@ -1,0 +1,31 @@
+# Ruff configuration for the repository-level test suites (tests/).
+#
+# The two Python services carry their own configuration in
+# services/*/pyproject.toml, and Ruff picks the closest config per file, so this
+# file only governs the code that lives outside those projects. It exists
+# because without it Ruff cannot tell that `lego_orchestrator` and `lego_rag` are
+# first-party: the imports look like third-party ones and isort tries to merge
+# them into the external block.
+line-length = 120
+target-version = "py312"
+
+# The catalog engine and its bootstrap scripts predate this workspace and are the
+# implementation of record (docs/decisions/0005). They are preserved byte-for-byte and
+# verified by their own unittest suite instead of being restyled to satisfy the linter.
+exclude = ["scripts/", "tests/test_lego_catalog.py"]
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "S", "RUF"]
+ignore = [
+  "E501",   # line length is enforced by `ruff format`
+  "S101",   # asserts are the point of a test suite
+  "S603",   # subprocess is required to run the CLI under test
+  "S607",   # the interpreter is resolved via sys.executable by design
+  "SIM108", # ternaries are not always clearer
+]
+
+[lint.isort]
+known-first-party = ["lego_orchestrator", "lego_rag", "lego_catalog"]
+
+[lint.per-file-ignores]
+"tests/*" = ["S", "E501"]

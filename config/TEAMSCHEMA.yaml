@@ -1,0 +1,187 @@
+schema_version: "1.0"
+
+team:
+  id: manus-lego-engineering
+  name: Manus LEGO Engineering Team
+  owner: orchestrator
+  accountable: orchestrator
+  approval_authority: human_owner
+  separation_of_duties: true
+
+orchestrator:
+  command: agenteorchsenior
+  policy: config/security.yaml
+  autonomy:
+    default: read_only
+    max_autonomous_scope:
+      - analyze
+      - plan
+      - draft_branch
+      - open_pull_request
+      - run_tests
+  approval_required:
+    - production_deploy
+    - destructive_operations
+    - merge_to_main
+    - secret_creation
+    - new_external_source
+  escalation:
+    on_policy_violation: halt_and_report
+    on_missing_evidence: block_release
+    on_ambiguous_requirement: request_clarification
+
+agents:
+  - id: orchestrator
+    role: coordination
+    description: Owns the plan, allocates work, enforces policy and stops the run on a violation.
+    tools:
+      - catalog_read
+      - repo_read
+      - evidence_write
+    writes:
+      - docs/evidence
+    constraints:
+      - no_repo_write
+      - no_direct_push_to_main
+  - id: researcher
+    role: source_discovery
+    description: Discovers public sources and records provenance without executing them.
+    tools:
+      - web
+      - github
+      - catalog_read
+    writes:
+      - reports/scouts
+    constraints:
+      - read_only_network
+      - no_code_execution
+  - id: architect
+    role: system_design
+    description: Produces architecture decisions, contracts and integration plans.
+    tools:
+      - catalog_read
+      - diagrams
+      - repo_read
+    writes:
+      - docs/decisions
+      - docs/architecture.mmd
+    constraints:
+      - no_network_write
+  - id: rag_engineer
+    role: knowledge_retrieval
+    description: Builds and evaluates the retrieval pipeline and its guardrails.
+    tools:
+      - python
+      - repo_read
+      - vector_store
+    writes:
+      - services/rag
+      - tests/evaluations
+    constraints:
+      - no_private_corpus_commit
+  - id: engineering_agent
+    role: implementation
+    description: Implements changes test-first on a dedicated branch.
+    tools:
+      - git
+      - cli
+      - python
+      - node
+      - repo_write
+    writes:
+      - apps
+      - packages
+      - services
+      - tests
+    constraints:
+      - no_force_push
+      - no_direct_push_to_main
+  - id: quality_auditor
+    role: independent_verification
+    description: Independently verifies gates, tests and security evidence.
+    tools:
+      - tests
+      - security_scans
+      - repo_read
+      - evidence_write
+    writes:
+      - docs/evidence
+    constraints:
+      - read_only_source
+      - cannot_approve_own_work
+
+execution:
+  workflow: workflows/execute.py
+  traceability: true
+  evidence_required: true
+  max_parallel_agents: 4
+  gates:
+    - G0
+    - G1
+    - G2
+    - G3
+    - G4
+    - G5
+    - G6
+  require_independent_auditor: true
+
+tool_policy:
+  # Every tool referenced by an agent must appear here. The registry validator
+  # (`lego config validate`) fails closed on an unknown tool.
+  catalog:
+    web:
+      class: network
+      risk: low
+      scope: public_read
+    github:
+      class: network
+      risk: low
+      scope: public_read
+    diagrams:
+      class: generation
+      risk: low
+      scope: local_write
+    vector_store:
+      class: data
+      risk: medium
+      scope: local_write
+    python:
+      class: execution
+      risk: medium
+      scope: sandboxed
+    node:
+      class: execution
+      risk: medium
+      scope: sandboxed
+    cli:
+      class: execution
+      risk: medium
+      scope: sandboxed
+    git:
+      class: vcs
+      risk: medium
+      scope: branch_write
+    tests:
+      class: execution
+      risk: low
+      scope: sandboxed
+    security_scans:
+      class: analysis
+      risk: low
+      scope: local_read
+    catalog_read:
+      class: data
+      risk: low
+      scope: local_read
+    repo_read:
+      class: data
+      risk: low
+      scope: local_read
+    repo_write:
+      class: data
+      risk: medium
+      scope: local_write
+    evidence_write:
+      class: data
+      risk: low
+      scope: local_write

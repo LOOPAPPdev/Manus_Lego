@@ -1,0 +1,67 @@
+# syntax=docker/dockerfile:1.7
+#
+# Read-only catalog API. Multi-stage: the build stage carries pnpm, Turborepo and the
+# TypeScript compiler; the runtime stage carries only the compiled output and the
+# production dependency tree, and runs as the unprivileged `node` user.
+#
+# The base image is pinned by digest, not by tag: a tag can be repointed, a digest cannot.
+# NOTE: this image has not been built in the development sandbox (no Docker daemon).
+# The hardening properties are asserted statically by tests/security/test_containers.py.
+
+ARG NODE_IMAGE=node:22-alpine@sha256:1314fb30ec37592d5845e5a160d522c0e680972aa534549940b8d73bde88481a
+
+# ---------- build ----------
+FROM ${NODE_IMAGE} AS build
+
+ENV CI=1 \
+    PNPM_HOME=/pnpm \
+    PATH=/pnpm:$PATH
+
+WORKDIR /repo
+
+# pnpm is pinned by the packageManager field; corepack reads it from package.json.
+RUN corepack enable && corepack prepare pnpm@11.25.0 --activate
+
+# Copy manifests first so a source-only change reuses the dependency layer.
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc turbo.json tsconfig.base.json ./
+COPY packages/schemas/package.json packages/schemas/
+COPY packages/shared/package.json packages/shared/
+COPY packages/ui/package.json packages/ui/
+COPY apps/api/package.json apps/api/
+COPY apps/web/package.json apps/web/
+
+RUN pnpm install --frozen-lockfile
+
+COPY packages ./packages
+COPY apps ./apps
+
+RUN pnpm exec turbo run build --filter=@lego/api
+
+# ---------- runtime ----------
+FROM ${NODE_IMAGE} AS runtime
+
+ENV NODE_ENV=production \
+    LEGO_API_PORT=8787 \
+    LEGO_API_HOST=0.0.0.0
+
+WORKDIR /app
+
+# Only the built workspace, never the compiler or the test tooling.
+COPY --from=build --chown=node:node /repo/package.json ./package.json
+COPY --from=build --chown=node:node /repo/node_modules ./node_modules
+COPY --from=build --chown=node:node /repo/packages ./packages
+COPY --from=build --chown=node:node /repo/apps/api ./apps/api
+COPY --from=build --chown=node:node /repo/catalog ./catalog
+COPY --from=build --chown=node:node /repo/config ./config
+COPY --from=build --chown=node:node /repo/docs/evidence ./docs/evidence
+
+USER node
+
+EXPOSE 8787
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+    CMD wget -qO- http://127.0.0.1:8787/health || exit 1
+
+STOPSIGNAL SIGTERM
+
+CMD ["node", "apps/api/dist/index.js"]

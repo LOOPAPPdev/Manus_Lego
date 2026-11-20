@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+.venv/
+.ruff_cache/
+.mypy_cache/
+
+# Node
+node_modules/
+.turbo/
+dist/
+*.tsbuildinfo
+coverage/
+.vite/
+
+# Catalog caches and generated plans (the committed catalog is the source of truth)
+catalog/.cache/
+catalog/selection_plan.json
+catalog/compose_plan.json
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# RAG runtime artifacts (never commit embeddings, private corpora or indexes)
+.data/
+rag-store/
+corpora/private/
+
+# Evidence generated locally by `lego verify` (CI uploads it as an artifact)
+docs/evidence/local/
+reports/junit/
+reports/coverage/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

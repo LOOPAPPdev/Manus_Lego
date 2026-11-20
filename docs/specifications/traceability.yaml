@@ -1,0 +1,307 @@
+schema_version: "1.0"
+
+# Requirement → implementation → test → evidence.
+#
+# `tests` is intentionally omitted: test links are discovered from source by
+# `lego trace` / `lego report` (any test whose body or docstring contains the
+# requirement id). Editing a test name therefore cannot silently orphan a
+# requirement — the link either resolves or the requirement becomes `partial`.
+#
+# `evidence` must point at artifacts that exist in the repository. Gates that
+# cannot find their artifact report `not_evaluated`, never `pass`.
+
+requirements:
+  - id: REQ-PO-001
+    practice: PO
+    title: Requirements carry acceptance criteria
+    statement: >-
+      WHEN a requirement is added to the specification, THE SYSTEM SHALL record an identifier,
+      a statement and at least one acceptance criterion, and the identifier SHALL appear in the
+      traceability matrix.
+    acceptance:
+      - "Every requirement in the matrix has a non-empty acceptance list."
+      - "A requirement without acceptance criteria fails gate G0."
+      - "`lego config validate` exits 0 on the committed configuration."
+    implementation:
+      - docs/specifications/requirements.md
+      - docs/specifications/traceability.yaml
+      - services/orchestrator/src/lego_orchestrator/traceability.py
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-PO-002
+    practice: PO
+    title: Authority, roles and separation of duties are declared
+    statement: >-
+      WHEN an agent acts on the repository, THE SYSTEM SHALL resolve its permissions from
+      config/TEAMSCHEMA.yaml, and the orchestrator SHALL NOT hold repository write access.
+    acceptance:
+      - "The agent registry matches the team schema by id and tool set."
+      - "An agent using a tool outside tool_policy.catalog fails validation."
+      - "The independent auditor cannot hold repo_write."
+    implementation:
+      - config/TEAMSCHEMA.yaml
+      - agents/registry.yaml
+      - services/orchestrator/src/lego_orchestrator/config.py
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-PO-003
+    practice: PO
+    title: Toolchains are reproducible
+    statement: >-
+      WHEN a build or test runs in CI, THE SYSTEM SHALL install from committed lockfiles with a
+      pinned Node and Python runtime.
+    acceptance:
+      - "pnpm-lock.yaml and both uv.lock files are tracked by Git."
+      - "pnpm install --frozen-lockfile and uv sync --frozen succeed."
+      - "Dependency lifecycle scripts are allowlisted explicitly in pnpm-workspace.yaml."
+    implementation:
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - services/orchestrator/uv.lock
+      - services/rag/uv.lock
+      - turbo.json
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-PO-004
+    practice: PO
+    title: Build and release environments are defined as code
+    statement: >-
+      WHEN a service is deployed, THE SYSTEM SHALL use a committed container definition built in
+      multiple stages, running as a non-root user with pinned base images.
+    acceptance:
+      - "Every Dockerfile pins its base image and declares a non-root USER."
+      - "Every Dockerfile declares a HEALTHCHECK."
+      - "The compose file sets read-only root filesystems and no-new-privileges."
+    implementation:
+      - infrastructure/docker/Dockerfile.api
+      - infrastructure/docker/Dockerfile.orchestrator
+      - infrastructure/docker/Dockerfile.rag
+      - infrastructure/docker/compose.yaml
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-PO-005
+    practice: PO
+    title: Release requires recorded human authorization
+    statement: >-
+      WHEN a change is proposed for production, THE SYSTEM SHALL require an approval record that
+      names the commit, the approver and the scope.
+    acceptance:
+      - "Gate G6 is blocked until an approval record matches the current commit."
+      - "A blocked gate is never reported as a pass."
+      - "The approval schema and process are documented."
+    implementation:
+      - docs/operations/runbook.md
+      - services/orchestrator/src/lego_orchestrator/gates.py
+      - docs/evidence/approvals/README.md
+    evidence:
+      - docs/evidence/approvals/README.md
+    manual_control: true
+
+  - id: REQ-PS-001
+    practice: PS
+    title: Credentials never enter the repository
+    statement: >-
+      WHEN code, tests, fixtures or documentation are committed, THE SYSTEM SHALL contain no
+      credential material, and secrets SHALL be read from the environment at runtime.
+    acceptance:
+      - "The secret scan over tracked files reports zero findings."
+      - "A planted credential pattern is detected by the scanner's own test."
+      - ".env files are ignored and .env.example contains no values."
+    implementation:
+      - config/security.yaml
+      - services/orchestrator/src/lego_orchestrator/security.py
+      - .env.example
+      - .gitignore
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-PS-002
+    practice: PS
+    title: Every external artifact is referenced with provenance
+    statement: >-
+      WHEN the catalog records an external template, THE SYSTEM SHALL record provider,
+      repository, commit (or an explicit null with a status that forbids reuse), path and license
+      posture.
+    acceptance:
+      - "Catalog validation reports no record claiming completeness without a pinned commit."
+      - "Every manifest satisfies schemas/template.schema.json."
+      - "An unpinned record cannot be composed for reuse."
+    implementation:
+      - schemas/template.schema.json
+      - scripts/lego_catalog.py
+      - catalog/index.json
+      - docs/pipeline.md
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-PS-003
+    practice: PS
+    title: Release artifacts are integrity-checked
+    statement: >-
+      WHEN evidence or a release artifact is produced, THE SYSTEM SHALL publish a SHA-256 digest
+      and the commit it describes, and CI actions SHALL be pinned to immutable commit SHAs.
+    acceptance:
+      - "docs/evidence/evidence-manifest.json lists a digest per artifact."
+      - "Every `uses:` reference in .github/workflows is a 40-character SHA."
+      - "An unpinned action fails the security suite."
+    implementation:
+      - services/orchestrator/src/lego_orchestrator/evidence.py
+      - .github/workflows/release.yml
+    evidence:
+      - docs/evidence/evidence-manifest.json
+
+  - id: REQ-PW-001
+    practice: PW
+    title: Contracts are defined before implementation
+    statement: >-
+      WHEN a runtime boundary is introduced, THE SYSTEM SHALL publish a schema for it, and both
+      the TypeScript and Python sides SHALL validate against that contract.
+    acceptance:
+      - "packages/schemas parses the committed catalog."
+      - "Gate G2 validates every manifest against the published JSON Schema."
+      - "The API response envelope is typed by the shared schema package."
+    implementation:
+      - packages/schemas/src/catalog.ts
+      - packages/schemas/src/api.ts
+      - schemas/template.schema.json
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-PW-002
+    practice: PW
+    title: Reuse requires a pinned, reviewed component
+    statement: >-
+      WHEN a template is proposed for reuse, THE SYSTEM SHALL produce a composition plan listing
+      every blocker and SHALL default to blocked.
+    acceptance:
+      - "`lego compose` exits 3 and reports status blocked while a candidate lacks a pinned commit or reviewed license."
+      - "The plan lists no files to copy."
+      - "Each blocker states the missing evidence."
+    implementation:
+      - services/orchestrator/src/lego_orchestrator/compose.py
+      - docs/pipeline.md
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-PW-003
+    practice: PW
+    title: Configuration and input fail closed
+    statement: >-
+      WHEN configuration is missing a required field or input violates a schema, THE SYSTEM SHALL
+      reject the operation instead of applying a default.
+    acceptance:
+      - "Unknown configuration keys raise a validation error."
+      - "The API returns 400 for an out-of-range pagination parameter."
+      - "An unknown document classification is downgraded to restricted."
+    implementation:
+      - services/orchestrator/src/lego_orchestrator/config.py
+      - apps/api/src/server.ts
+      - services/rag/src/lego_rag/corpus.py
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-PW-004
+    practice: PW
+    title: Behaviour changes are covered by automated tests
+    statement: >-
+      WHEN a behaviour is implemented, THE SYSTEM SHALL include at least one automated test that
+      references the requirement identifier and passes in the executed suite.
+    acceptance:
+      - "`lego report` marks a requirement partial when no linked test ran."
+      - "A requirement is verified only when a linked test passed."
+      - "The report lists the linked tests per requirement."
+    implementation:
+      - services/orchestrator/src/lego_orchestrator/traceability.py
+      - tests/unit
+      - services/rag/tests
+    evidence:
+      - docs/evidence/traceability.md
+
+  - id: REQ-PW-005
+    practice: PW
+    title: Independent verification precedes merge
+    statement: >-
+      WHEN a pull request is opened, THE SYSTEM SHALL evaluate gates from produced artifacts and
+      SHALL NOT allow the implementing agent to approve its own work.
+    acceptance:
+      - "The gate report records per-gate status with an evidence path."
+      - "A missing JUnit report yields not_evaluated, never pass."
+      - "The auditor role cannot hold repo_write."
+    implementation:
+      - services/orchestrator/src/lego_orchestrator/gates.py
+      - .github/workflows/ci.yml
+      - agents/auditor/AGENT.md
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-PW-006
+    practice: PW
+    title: Secure defaults in services and containers
+    statement: >-
+      WHEN the API or a container starts, THE SYSTEM SHALL run with least privilege: read-only
+      routes, security headers, a request rate limit, non-root user and no privilege escalation.
+    acceptance:
+      - "The API rejects write methods."
+      - "Hardening headers are present on every response."
+      - "The rate limiter returns 429 with Retry-After."
+      - "Containers set no-new-privileges and a read-only root filesystem."
+    implementation:
+      - apps/api/src/server.ts
+      - apps/api/src/lib/rate-limit.ts
+      - infrastructure/docker/Dockerfile.api
+      - infrastructure/docker/compose.yaml
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-RV-001
+    practice: RV
+    title: Continuous dependency and static analysis
+    statement: >-
+      WHEN a dependency or source file changes, THE SYSTEM SHALL run dependency review, static
+      analysis and container scanning, and keep the results as artifacts.
+    acceptance:
+      - "security.yml runs on pull requests and on a schedule."
+      - "Results are uploaded as workflow artifacts."
+      - "Dependabot covers npm, uv, pip and GitHub Actions."
+    implementation:
+      - .github/workflows/security.yml
+      - .github/dependabot.yml
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-RV-002
+    practice: RV
+    title: Vulnerability intake and remediation are recorded
+    statement: >-
+      WHEN a vulnerability is reported, THE SYSTEM SHALL record severity, affected component,
+      decision and remediation commit in the operations register.
+    acceptance:
+      - "The runbook contains a triage table with remediation SLAs."
+      - "The process names the accountable decision maker."
+      - "The register records closure evidence."
+    implementation:
+      - docs/operations/runbook.md
+    evidence:
+      - docs/evidence/gates.json
+
+  - id: REQ-RV-003
+    practice: RV
+    title: Secret exposure is detected and handled
+    statement: >-
+      WHEN a credential pattern appears in a tracked file or in retrieved content, THE SYSTEM
+      SHALL report it, refuse to continue the affected operation and record the finding.
+    acceptance:
+      - "The scanner detects planted patterns."
+      - "A retrieved document containing instruction overrides is flagged in guardrail_flags without being obeyed."
+      - "The gate report records the scan scope."
+    implementation:
+      - services/orchestrator/src/lego_orchestrator/security.py
+      - services/rag/src/lego_rag/guardrails.py
+      - config/security.yaml
+    evidence:
+      - docs/evidence/gates.json

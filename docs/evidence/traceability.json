@@ -1,0 +1,1127 @@
+{
+  "commit": "44f9b44d360eb858fb5a97a3aab0b78fee4bc0a1",
+  "generated_at": "2026-11-20T14:41:11Z",
+  "requirements": [
+    {
+      "declared_tests": [
+        "test_declared_implementation_paths_exist",
+        "test_every_gate_declares_requirements_and_a_detail",
+        "test_requirements_have_acceptance_criteria",
+        "test_supporting_documents_exist"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PO-001",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PO",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.107,
+          "file": "services/orchestrator/tests/test_gates.py",
+          "name": "test_every_gate_declares_requirements_and_a_detail",
+          "nodeid": "services/orchestrator/tests/test_gates.py::test_every_gate_declares_requirements_and_a_detail",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-001"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_documentation.py",
+          "name": "test_supporting_documents_exist[docs/nist-mapping.md]",
+          "nodeid": "tests/unit/test_documentation.py::test_supporting_documents_exist[docs/nist-mapping.md]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-001"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_documentation.py",
+          "name": "test_supporting_documents_exist[docs/quality/testing-strategy.md]",
+          "nodeid": "tests/unit/test_documentation.py::test_supporting_documents_exist[docs/quality/testing-strategy.md]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-001"
+          ]
+        },
+        {
+          "duration": 0.007,
+          "file": "tests/unit/test_specification.py",
+          "name": "test_requirements_have_acceptance_criteria",
+          "nodeid": "tests/unit/test_specification.py::test_requirements_have_acceptance_criteria",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-001"
+          ]
+        },
+        {
+          "duration": 0.008,
+          "file": "tests/unit/test_specification.py",
+          "name": "test_declared_implementation_paths_exist",
+          "nodeid": "tests/unit/test_specification.py::test_declared_implementation_paths_exist",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-001"
+          ]
+        }
+      ],
+      "title": "Requirements carry acceptance criteria"
+    },
+    {
+      "declared_tests": [
+        "test_agent_permissions_are_bounded",
+        "test_agent_registry_matches_the_team_schema",
+        "test_committed_configuration_is_valid",
+        "test_config_validate_accepts_the_committed_configuration",
+        "test_orchestrator_cannot_hold_repo_write",
+        "test_undeclared_tool_is_rejected"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PO-002",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PO",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.015,
+          "file": "services/orchestrator/tests/test_config.py",
+          "name": "test_committed_configuration_is_valid",
+          "nodeid": "services/orchestrator/tests/test_config.py::test_committed_configuration_is_valid",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-002"
+          ]
+        },
+        {
+          "duration": 0.023,
+          "file": "services/orchestrator/tests/test_config.py",
+          "name": "test_orchestrator_cannot_hold_repo_write",
+          "nodeid": "services/orchestrator/tests/test_config.py::test_orchestrator_cannot_hold_repo_write",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-002"
+          ]
+        },
+        {
+          "duration": 0.023,
+          "file": "services/orchestrator/tests/test_config.py",
+          "name": "test_undeclared_tool_is_rejected",
+          "nodeid": "services/orchestrator/tests/test_config.py::test_undeclared_tool_is_rejected",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-002"
+          ]
+        },
+        {
+          "duration": 0.013,
+          "file": "services/orchestrator/tests/test_config.py",
+          "name": "test_agent_registry_matches_the_team_schema",
+          "nodeid": "services/orchestrator/tests/test_config.py::test_agent_registry_matches_the_team_schema",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-002"
+          ]
+        },
+        {
+          "duration": 0.013,
+          "file": "tests/unit/test_specification.py",
+          "name": "test_agent_permissions_are_bounded",
+          "nodeid": "tests/unit/test_specification.py::test_agent_permissions_are_bounded",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-002"
+          ]
+        },
+        {
+          "duration": 0.204,
+          "file": "tests/integration/test_cli_workflows.py",
+          "name": "test_config_validate_accepts_the_committed_configuration",
+          "nodeid": "tests/integration/test_cli_workflows.py::test_config_validate_accepts_the_committed_configuration",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-002"
+          ]
+        }
+      ],
+      "title": "Authority, roles and separation of duties are declared"
+    },
+    {
+      "declared_tests": [
+        "test_toolchain_is_reproducible"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PO-003",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PO",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.013,
+          "file": "tests/unit/test_specification.py",
+          "name": "test_toolchain_is_reproducible",
+          "nodeid": "tests/unit/test_specification.py::test_toolchain_is_reproducible",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-003"
+          ]
+        }
+      ],
+      "title": "Toolchains are reproducible"
+    },
+    {
+      "declared_tests": [
+        "test_architecture_diagram_is_renderable",
+        "test_base_images_are_pinned_by_digest",
+        "test_builds_in_multiple_stages",
+        "test_declares_healthcheck_and_signal_handling"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PO-004",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PO",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_documentation.py",
+          "name": "test_architecture_diagram_is_renderable",
+          "nodeid": "tests/unit/test_documentation.py::test_architecture_diagram_is_renderable",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.001,
+          "file": "tests/security/test_containers.py",
+          "name": "test_base_images_are_pinned_by_digest[Dockerfile.api]",
+          "nodeid": "tests/security/test_containers.py::test_base_images_are_pinned_by_digest[Dockerfile.api]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_declares_healthcheck_and_signal_handling[Dockerfile.api]",
+          "nodeid": "tests/security/test_containers.py::test_declares_healthcheck_and_signal_handling[Dockerfile.api]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_builds_in_multiple_stages[Dockerfile.api]",
+          "nodeid": "tests/security/test_containers.py::test_builds_in_multiple_stages[Dockerfile.api]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_base_images_are_pinned_by_digest[Dockerfile.orchestrator]",
+          "nodeid": "tests/security/test_containers.py::test_base_images_are_pinned_by_digest[Dockerfile.orchestrator]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_declares_healthcheck_and_signal_handling[Dockerfile.orchestrator]",
+          "nodeid": "tests/security/test_containers.py::test_declares_healthcheck_and_signal_handling[Dockerfile.orchestrator]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_builds_in_multiple_stages[Dockerfile.orchestrator]",
+          "nodeid": "tests/security/test_containers.py::test_builds_in_multiple_stages[Dockerfile.orchestrator]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_base_images_are_pinned_by_digest[Dockerfile.rag]",
+          "nodeid": "tests/security/test_containers.py::test_base_images_are_pinned_by_digest[Dockerfile.rag]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_declares_healthcheck_and_signal_handling[Dockerfile.rag]",
+          "nodeid": "tests/security/test_containers.py::test_declares_healthcheck_and_signal_handling[Dockerfile.rag]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_builds_in_multiple_stages[Dockerfile.rag]",
+          "nodeid": "tests/security/test_containers.py::test_builds_in_multiple_stages[Dockerfile.rag]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_base_images_are_pinned_by_digest[Dockerfile.web]",
+          "nodeid": "tests/security/test_containers.py::test_base_images_are_pinned_by_digest[Dockerfile.web]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_declares_healthcheck_and_signal_handling[Dockerfile.web]",
+          "nodeid": "tests/security/test_containers.py::test_declares_healthcheck_and_signal_handling[Dockerfile.web]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_builds_in_multiple_stages[Dockerfile.web]",
+          "nodeid": "tests/security/test_containers.py::test_builds_in_multiple_stages[Dockerfile.web]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-004"
+          ]
+        }
+      ],
+      "title": "Build and release environments are defined as code"
+    },
+    {
+      "declared_tests": [
+        "test_blocked_gate_is_reported_as_blocked",
+        "test_release_requires_a_protected_environment"
+      ],
+      "evidence": [
+        "docs/evidence/approvals/README.md"
+      ],
+      "id": "REQ-PO-005",
+      "implementation_present": true,
+      "manual_control": true,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PO",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.106,
+          "file": "services/orchestrator/tests/test_gates.py",
+          "name": "test_blocked_gate_is_reported_as_blocked",
+          "nodeid": "services/orchestrator/tests/test_gates.py::test_blocked_gate_is_reported_as_blocked",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-005"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_workflows.py",
+          "name": "test_release_requires_a_protected_environment",
+          "nodeid": "tests/security/test_workflows.py::test_release_requires_a_protected_environment",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PO-005"
+          ]
+        }
+      ],
+      "title": "Release requires recorded human authorization"
+    },
+    {
+      "declared_tests": [
+        "test_allowlist_is_scoped_to_declared_paths",
+        "test_environment_files_are_not_tracked",
+        "test_repository_has_no_credential_patterns"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PS-001",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PS",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.046,
+          "file": "tests/unit/test_secret_scan.py",
+          "name": "test_repository_has_no_credential_patterns",
+          "nodeid": "tests/unit/test_secret_scan.py::test_repository_has_no_credential_patterns",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PS-001"
+          ]
+        },
+        {
+          "duration": 0.004,
+          "file": "tests/unit/test_secret_scan.py",
+          "name": "test_environment_files_are_not_tracked",
+          "nodeid": "tests/unit/test_secret_scan.py::test_environment_files_are_not_tracked",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PS-001"
+          ]
+        },
+        {
+          "duration": 0.013,
+          "file": "tests/unit/test_secret_scan.py",
+          "name": "test_allowlist_is_scoped_to_declared_paths",
+          "nodeid": "tests/unit/test_secret_scan.py::test_allowlist_is_scoped_to_declared_paths",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PS-001"
+          ]
+        }
+      ],
+      "title": "Credentials never enter the repository"
+    },
+    {
+      "declared_tests": [
+        "test_catalog_refresh_opens_a_pull_request",
+        "test_catalog_validation_reports_valid",
+        "test_records_never_claim_completeness_without_a_commit"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PS-002",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PS",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.051,
+          "file": "tests/unit/test_catalog_and_composition.py",
+          "name": "test_catalog_validation_reports_valid",
+          "nodeid": "tests/unit/test_catalog_and_composition.py::test_catalog_validation_reports_valid",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PS-002"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_catalog_and_composition.py",
+          "name": "test_records_never_claim_completeness_without_a_commit",
+          "nodeid": "tests/unit/test_catalog_and_composition.py::test_records_never_claim_completeness_without_a_commit",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PS-002"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_workflows.py",
+          "name": "test_catalog_refresh_opens_a_pull_request",
+          "nodeid": "tests/security/test_workflows.py::test_catalog_refresh_opens_a_pull_request",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PS-002"
+          ]
+        }
+      ],
+      "title": "Every external artifact is referenced with provenance"
+    },
+    {
+      "declared_tests": [
+        "test_actions_are_pinned_to_commit_shas",
+        "test_every_workflow_is_parseable_yaml"
+      ],
+      "evidence": [
+        "docs/evidence/evidence-manifest.json"
+      ],
+      "id": "REQ-PS-003",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PS",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.016,
+          "file": "tests/security/test_workflows.py",
+          "name": "test_every_workflow_is_parseable_yaml",
+          "nodeid": "tests/security/test_workflows.py::test_every_workflow_is_parseable_yaml",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PS-003"
+          ]
+        },
+        {
+          "duration": 0.001,
+          "file": "tests/security/test_workflows.py",
+          "name": "test_actions_are_pinned_to_commit_shas",
+          "nodeid": "tests/security/test_workflows.py::test_actions_are_pinned_to_commit_shas",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PS-003"
+          ]
+        }
+      ],
+      "title": "Release artifacts are integrity-checked"
+    },
+    {
+      "declared_tests": [
+        "test_catalog_listing_is_paginated",
+        "test_contracts_match_the_catalog",
+        "test_health_reports_catalog_state",
+        "test_typescript_and_python_contracts_agree"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PW-001",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PW",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.006,
+          "file": "tests/unit/test_specification.py",
+          "name": "test_contracts_match_the_catalog",
+          "nodeid": "tests/unit/test_specification.py::test_contracts_match_the_catalog",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-001"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_specification.py",
+          "name": "test_typescript_and_python_contracts_agree",
+          "nodeid": "tests/unit/test_specification.py::test_typescript_and_python_contracts_agree",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-001"
+          ]
+        },
+        {
+          "duration": 0.321,
+          "file": "tests/integration/test_api_contract.py",
+          "name": "test_health_reports_catalog_state",
+          "nodeid": "tests/integration/test_api_contract.py::test_health_reports_catalog_state",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-001"
+          ]
+        },
+        {
+          "duration": 0.009,
+          "file": "tests/integration/test_api_contract.py",
+          "name": "test_catalog_listing_is_paginated",
+          "nodeid": "tests/integration/test_api_contract.py::test_catalog_listing_is_paginated",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-001"
+          ]
+        }
+      ],
+      "title": "Contracts are defined before implementation"
+    },
+    {
+      "declared_tests": [
+        "test_complete_evidence_yields_ready_for_review",
+        "test_composition_requires_reviewed_license_and_inventory",
+        "test_select_and_compose_never_authorise_reuse",
+        "test_unknown_template_is_blocked_not_guessed"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PW-002",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PW",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.001,
+          "file": "tests/unit/test_catalog_and_composition.py",
+          "name": "test_unknown_template_is_blocked_not_guessed",
+          "nodeid": "tests/unit/test_catalog_and_composition.py::test_unknown_template_is_blocked_not_guessed",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-002"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_catalog_and_composition.py",
+          "name": "test_composition_requires_reviewed_license_and_inventory",
+          "nodeid": "tests/unit/test_catalog_and_composition.py::test_composition_requires_reviewed_license_and_inventory",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-002"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_catalog_and_composition.py",
+          "name": "test_complete_evidence_yields_ready_for_review",
+          "nodeid": "tests/unit/test_catalog_and_composition.py::test_complete_evidence_yields_ready_for_review",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-002"
+          ]
+        },
+        {
+          "duration": 0.444,
+          "file": "tests/integration/test_cli_workflows.py",
+          "name": "test_select_and_compose_never_authorise_reuse",
+          "nodeid": "tests/integration/test_cli_workflows.py::test_select_and_compose_never_authorise_reuse",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-002"
+          ]
+        }
+      ],
+      "title": "Reuse requires a pinned, reviewed component"
+    },
+    {
+      "declared_tests": [
+        "test_invalid_pagination_is_rejected",
+        "test_missing_policy_file_is_rejected",
+        "test_restricted_documents_require_clearance_and_tenant",
+        "test_unanswerable_question_refuses_instead_of_guessing",
+        "test_unknown_classification_fails_closed",
+        "test_unknown_command_is_a_usage_error",
+        "test_unknown_key_is_rejected",
+        "test_unknown_template_returns_404_envelope"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PW-003",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PW",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.021,
+          "file": "services/orchestrator/tests/test_config.py",
+          "name": "test_unknown_key_is_rejected",
+          "nodeid": "services/orchestrator/tests/test_config.py::test_unknown_key_is_rejected",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-003"
+          ]
+        },
+        {
+          "duration": 0.016,
+          "file": "services/orchestrator/tests/test_config.py",
+          "name": "test_missing_policy_file_is_rejected",
+          "nodeid": "services/orchestrator/tests/test_config.py::test_missing_policy_file_is_rejected",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-003"
+          ]
+        },
+        {
+          "duration": 0.001,
+          "file": "tests/integration/test_api_contract.py",
+          "name": "test_invalid_pagination_is_rejected",
+          "nodeid": "tests/integration/test_api_contract.py::test_invalid_pagination_is_rejected",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-003"
+          ]
+        },
+        {
+          "duration": 0.001,
+          "file": "tests/integration/test_api_contract.py",
+          "name": "test_unknown_template_returns_404_envelope",
+          "nodeid": "tests/integration/test_api_contract.py::test_unknown_template_returns_404_envelope",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-003"
+          ]
+        },
+        {
+          "duration": 0.178,
+          "file": "tests/integration/test_cli_workflows.py",
+          "name": "test_unknown_command_is_a_usage_error",
+          "nodeid": "tests/integration/test_cli_workflows.py::test_unknown_command_is_a_usage_error",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-003"
+          ]
+        }
+      ],
+      "title": "Configuration and input fail closed"
+    },
+    {
+      "declared_tests": [
+        "test_every_requirement_has_a_linked_test",
+        "test_marker_discovery_requires_the_identifier_in_the_test_body",
+        "test_markers_ignore_helper_functions",
+        "test_passing_junit_passes_the_gate",
+        "test_report_marks_requirements_partial_without_junit",
+        "test_retrieval_meets_the_quality_budget",
+        "test_unlinked_outcomes_stay_unlinked"
+      ],
+      "evidence": [
+        "docs/evidence/traceability.md"
+      ],
+      "id": "REQ-PW-004",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PW",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.134,
+          "file": "services/orchestrator/tests/test_gates.py",
+          "name": "test_passing_junit_passes_the_gate",
+          "nodeid": "services/orchestrator/tests/test_gates.py::test_passing_junit_passes_the_gate",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-004"
+          ]
+        },
+        {
+          "duration": 1.162,
+          "file": "tests/unit/test_traceability_links.py",
+          "name": "test_every_requirement_has_a_linked_test",
+          "nodeid": "tests/unit/test_traceability_links.py::test_every_requirement_has_a_linked_test",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-004"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_traceability_links.py",
+          "name": "test_markers_ignore_helper_functions",
+          "nodeid": "tests/unit/test_traceability_links.py::test_markers_ignore_helper_functions",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-004"
+          ]
+        },
+        {
+          "duration": 0.001,
+          "file": "tests/unit/test_traceability_links.py",
+          "name": "test_marker_discovery_requires_the_identifier_in_the_test_body",
+          "nodeid": "tests/unit/test_traceability_links.py::test_marker_discovery_requires_the_identifier_in_the_test_body",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-004"
+          ]
+        },
+        {
+          "duration": 0.001,
+          "file": "tests/unit/test_traceability_links.py",
+          "name": "test_unlinked_outcomes_stay_unlinked",
+          "nodeid": "tests/unit/test_traceability_links.py::test_unlinked_outcomes_stay_unlinked",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-004"
+          ]
+        },
+        {
+          "duration": 0.195,
+          "file": "tests/integration/test_cli_workflows.py",
+          "name": "test_report_marks_requirements_partial_without_junit",
+          "nodeid": "tests/integration/test_cli_workflows.py::test_report_marks_requirements_partial_without_junit",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-004"
+          ]
+        }
+      ],
+      "title": "Behaviour changes are covered by automated tests"
+    },
+    {
+      "declared_tests": [
+        "test_failing_junit_fails_the_gate",
+        "test_governance_endpoints_expose_gate_state",
+        "test_missing_junit_is_not_evaluated",
+        "test_readme_states_limits_and_non_claims",
+        "test_verify_without_evidence_reports_gaps_not_passes"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PW-005",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PW",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.11,
+          "file": "services/orchestrator/tests/test_gates.py",
+          "name": "test_missing_junit_is_not_evaluated",
+          "nodeid": "services/orchestrator/tests/test_gates.py::test_missing_junit_is_not_evaluated",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-005"
+          ]
+        },
+        {
+          "duration": 0.105,
+          "file": "services/orchestrator/tests/test_gates.py",
+          "name": "test_failing_junit_fails_the_gate",
+          "nodeid": "services/orchestrator/tests/test_gates.py::test_failing_junit_fails_the_gate",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-005"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_documentation.py",
+          "name": "test_readme_states_limits_and_non_claims",
+          "nodeid": "tests/unit/test_documentation.py::test_readme_states_limits_and_non_claims",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-005"
+          ]
+        },
+        {
+          "duration": 0.019,
+          "file": "tests/integration/test_api_contract.py",
+          "name": "test_governance_endpoints_expose_gate_state",
+          "nodeid": "tests/integration/test_api_contract.py::test_governance_endpoints_expose_gate_state",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-005"
+          ]
+        },
+        {
+          "duration": 0.315,
+          "file": "tests/integration/test_cli_workflows.py",
+          "name": "test_verify_without_evidence_reports_gaps_not_passes",
+          "nodeid": "tests/integration/test_cli_workflows.py::test_verify_without_evidence_reports_gaps_not_passes",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-005"
+          ]
+        }
+      ],
+      "title": "Independent verification precedes merge"
+    },
+    {
+      "declared_tests": [
+        "test_compose_applies_runtime_hardening",
+        "test_hardening_headers_are_present",
+        "test_no_privileged_or_host_network_escape_hatches",
+        "test_no_pull_request_target",
+        "test_runs_as_non_root",
+        "test_workflows_declare_minimal_permissions",
+        "test_write_methods_are_refused"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-PW-006",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "PW",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.001,
+          "file": "tests/integration/test_api_contract.py",
+          "name": "test_write_methods_are_refused",
+          "nodeid": "tests/integration/test_api_contract.py::test_write_methods_are_refused",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-006"
+          ]
+        },
+        {
+          "duration": 0.001,
+          "file": "tests/integration/test_api_contract.py",
+          "name": "test_hardening_headers_are_present",
+          "nodeid": "tests/integration/test_api_contract.py::test_hardening_headers_are_present",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-006"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_runs_as_non_root[Dockerfile.api]",
+          "nodeid": "tests/security/test_containers.py::test_runs_as_non_root[Dockerfile.api]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-006"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_runs_as_non_root[Dockerfile.orchestrator]",
+          "nodeid": "tests/security/test_containers.py::test_runs_as_non_root[Dockerfile.orchestrator]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-006"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_runs_as_non_root[Dockerfile.rag]",
+          "nodeid": "tests/security/test_containers.py::test_runs_as_non_root[Dockerfile.rag]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-006"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_runs_as_non_root[Dockerfile.web]",
+          "nodeid": "tests/security/test_containers.py::test_runs_as_non_root[Dockerfile.web]",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-006"
+          ]
+        },
+        {
+          "duration": 0.003,
+          "file": "tests/security/test_containers.py",
+          "name": "test_compose_applies_runtime_hardening",
+          "nodeid": "tests/security/test_containers.py::test_compose_applies_runtime_hardening",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-006"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_containers.py",
+          "name": "test_no_privileged_or_host_network_escape_hatches",
+          "nodeid": "tests/security/test_containers.py::test_no_privileged_or_host_network_escape_hatches",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-006"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_workflows.py",
+          "name": "test_workflows_declare_minimal_permissions",
+          "nodeid": "tests/security/test_workflows.py::test_workflows_declare_minimal_permissions",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-006"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_workflows.py",
+          "name": "test_no_pull_request_target",
+          "nodeid": "tests/security/test_workflows.py::test_no_pull_request_target",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-PW-006"
+          ]
+        }
+      ],
+      "title": "Secure defaults in services and containers"
+    },
+    {
+      "declared_tests": [
+        "test_dependabot_covers_every_ecosystem",
+        "test_dependency_review_is_guarded_by_an_availability_probe",
+        "test_security_workflow_runs_codeql_and_scans_containers"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-RV-001",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "RV",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.002,
+          "file": "tests/security/test_workflows.py",
+          "name": "test_dependabot_covers_every_ecosystem",
+          "nodeid": "tests/security/test_workflows.py::test_dependabot_covers_every_ecosystem",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-RV-001"
+          ]
+        },
+        {
+          "duration": 0.005,
+          "file": "tests/security/test_workflows.py",
+          "name": "test_dependency_review_is_guarded_by_an_availability_probe",
+          "nodeid": "tests/security/test_workflows.py::test_dependency_review_is_guarded_by_an_availability_probe",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-RV-001"
+          ]
+        },
+        {
+          "duration": 0.0,
+          "file": "tests/security/test_workflows.py",
+          "name": "test_security_workflow_runs_codeql_and_scans_containers",
+          "nodeid": "tests/security/test_workflows.py::test_security_workflow_runs_codeql_and_scans_containers",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-RV-001"
+          ]
+        }
+      ],
+      "title": "Continuous dependency and static analysis"
+    },
+    {
+      "declared_tests": [
+        "test_runbook_documents_vulnerability_register"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-RV-002",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "RV",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_documentation.py",
+          "name": "test_runbook_documents_vulnerability_register",
+          "nodeid": "tests/unit/test_documentation.py::test_runbook_documents_vulnerability_register",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-RV-002"
+          ]
+        }
+      ],
+      "title": "Vulnerability intake and remediation are recorded"
+    },
+    {
+      "declared_tests": [
+        "test_planted_credential_is_detected",
+        "test_poisoned_document_is_flagged_and_not_obeyed",
+        "test_threat_model_names_trust_boundaries_and_mitigations"
+      ],
+      "evidence": [
+        "docs/evidence/gates.json"
+      ],
+      "id": "REQ-RV-003",
+      "implementation_present": true,
+      "manual_control": false,
+      "missing_implementation": [],
+      "notes": [],
+      "practice": "RV",
+      "status": "verified",
+      "tests": [
+        {
+          "duration": 0.0,
+          "file": "tests/unit/test_documentation.py",
+          "name": "test_threat_model_names_trust_boundaries_and_mitigations",
+          "nodeid": "tests/unit/test_documentation.py::test_threat_model_names_trust_boundaries_and_mitigations",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-RV-003"
+          ]
+        },
+        {
+          "duration": 0.006,
+          "file": "tests/unit/test_secret_scan.py",
+          "name": "test_planted_credential_is_detected",
+          "nodeid": "tests/unit/test_secret_scan.py::test_planted_credential_is_detected",
+          "outcome": "passed",
+          "requirement_ids": [
+            "REQ-RV-003"
+          ]
+        }
+      ],
+      "title": "Secret exposure is detected and handled"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "summary": {
+    "by_practice": {
+      "PO": 5,
+      "PS": 3,
+      "PW": 6,
+      "RV": 3
+    },
+    "failing": 0,
+    "partial": 0,
+    "tests_executed": 93,
+    "total": 17,
+    "unverified": 0,
+    "verified": 17
+  }
+}

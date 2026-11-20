@@ -1,0 +1,62 @@
+[project]
+name = "lego-orchestrator"
+version = "0.1.0"
+description = "Deterministic orchestration, governance gates and requirement traceability for Manus LEGO."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "UNLICENSED" }
+dependencies = [
+  "pydantic>=2.9,<3",
+  "PyYAML>=6.0.2,<7",
+  "jsonschema>=4.23,<5",
+]
+
+[project.scripts]
+lego = "lego_orchestrator.cli:main"
+
+[dependency-groups]
+dev = [
+  "pytest>=8.3,<9",
+  "pytest-cov>=5.0,<6",
+  "ruff>=0.7,<1",
+]
+lang = [
+    "deepagents>=0.1,<1",
+    "langchain>=1,<2",
+    "langgraph>=1,<2",
+    "langsmith>=0.4,<1",
+    "mcp>=1,<2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lego_orchestrator"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "S", "RUF"]
+ignore = [
+  "E501",   # line length is enforced by `ruff format`
+  "S101",   # asserts are the point of a test suite
+  "S603",   # subprocess is required to run pytest / git from the CLI
+  "S607",   # partial executable paths are resolved via sys.executable or PATH by design
+  "SIM108", # ternaries are not always clearer
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "E501"]
+
+[tool.coverage.run]
+source = ["lego_orchestrator"]

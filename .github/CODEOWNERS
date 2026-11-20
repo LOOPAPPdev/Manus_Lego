@@ -1,0 +1,21 @@
+# Single-owner repository.
+#
+# A second human reviewer does not exist, so branch protection must not require one:
+# the control that replaces it is a commit-scoped approval record for release
+# (docs/evidence/approvals/, enforced by gate G6) plus the gate report in the PR.
+#
+# Keep this file in sync with the GitHub team if the project gains maintainers.
+
+*                                   @LOOPAPPdev
+
+# Governance and evidence are reviewed by the accountable owner, not by an agent.
+/config/                            @LOOPAPPdev
+/agents/                            @LOOPAPPdev
+/docs/specifications/               @LOOPAPPdev
+/docs/evidence/approvals/           @LOOPAPPdev
+/.github/workflows/                 @LOOPAPPdev
+
+# The catalog engine is the implementation of record (see ADR 0005).
+/scripts/lego_catalog.py            @LOOPAPPdev
+/catalog/                           @LOOPAPPdev
+/schemas/                           @LOOPAPPdev

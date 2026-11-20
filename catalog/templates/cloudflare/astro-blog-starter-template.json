@@ -1,0 +1,81 @@
+{
+  "catalog_url": "https://developers.cloudflare.com/workers/get-started/quickstarts/",
+  "commands": {
+    "build": "astro build",
+    "check": "astro build && tsc && wrangler deploy --dry-run",
+    "deploy": "wrangler deploy",
+    "dev": "astro dev"
+  },
+  "description": "Build a personal website, blog, or portfolio with Astro.",
+  "features": [],
+  "id": "cloudflare:seed:astro-blog-starter-template",
+  "inventory": {
+    "complete": false,
+    "file_count": 0,
+    "files": [],
+    "metadata_paths": {}
+  },
+  "license": {
+    "file_path": null,
+    "status": "needs_review"
+  },
+  "platform_metadata": {
+    "label": "Astro Framework Starter",
+    "listed_in_templates_json": true,
+    "products": [
+      "Workers"
+    ],
+    "publish": true
+  },
+  "provenance": {
+    "feature_basis": "official_package_json_inspected",
+    "inspected_files": [
+      "astro-blog-starter-template/package.json"
+    ],
+    "origin": "cloudflare_templates_json",
+    "source_ref": "main (mutable; not pinned)"
+  },
+  "provider": "cloudflare",
+  "readme": {
+    "excerpt": null,
+    "path": null,
+    "url": null
+  },
+  "schema_version": "1.0.0",
+  "source": {
+    "commit": null,
+    "path": "astro-blog-starter-template",
+    "repository": "cloudflare/templates",
+    "repository_url": "https://github.com/cloudflare/templates",
+    "source_url": "https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template"
+  },
+  "stack": {
+    "bindings": [],
+    "dependencies": {},
+    "ecosystems": [],
+    "frameworks": [
+      "astro"
+    ],
+    "languages": [
+      "TypeScript",
+      "Astro"
+    ],
+    "package_manager": "unknown",
+    "products": [
+      "cloudflare-workers"
+    ],
+    "runtime_config": []
+  },
+  "status": "discovered_unverified",
+  "tags": [
+    "astro",
+    "blog",
+    "cloudflare",
+    "starter",
+    "template"
+  ],
+  "title": "Astro Blog Starter Template",
+  "warnings": [
+    "Bootstrap discovery only; run live index to pin a commit and inspect files"
+  ]
+}
