@@ -1,0 +1,90 @@
+flowchart TB
+    subgraph L0["Untrusted sources"]
+        direction LR
+        GH["GitHub template repos"]
+        VC["Vercel gallery"]
+        CF["Cloudflare gallery"]
+        DOCS["Tenant documents"]
+    end
+
+    subgraph L1["Catalog engine — stdlib only, implementation of record"]
+        ENG["scripts/lego_catalog.py<br/>index · search · plan · validate"]
+    end
+
+    subgraph L2["Catalog of record — committed data"]
+        direction LR
+        IDX["catalog/index.json"]
+        MAN["catalog/templates/*.json<br/>42 manifests"]
+        SRC["catalog/sources.json"]
+        PLAN["selection_plan.json<br/>compose_plan.json"]
+    end
+
+    subgraph L3["Python services — isolated uv projects"]
+        direction LR
+        ORCH["services/orchestrator<br/>lego CLI · gates · traceability"]
+        RAG["services/rag<br/>lego-rag · ACL · guardrails"]
+    end
+
+    subgraph L4["Governance artifacts — the evidence"]
+        direction LR
+        REQ["docs/specifications<br/>requirements + matrix"]
+        GATES["docs/evidence/gates.json"]
+        TRACE["docs/evidence/traceability.json"]
+        MANIFEST["evidence-manifest.json<br/>SHA-256 per artifact"]
+        APPROVAL["approvals/*.json<br/>commit-scoped"]
+    end
+
+    subgraph L5["TypeScript monorepo — pnpm + Turborepo"]
+        direction LR
+        SCHEMAS["packages/schemas<br/>zod contracts"]
+        SHARED["packages/shared<br/>ranking · config · evidence"]
+        API["apps/api — Fastify<br/>read-only, GET only"]
+        WEB["apps/web — React SPA<br/>catalog explorer"]
+    end
+
+    subgraph L6["CI/CD — actions pinned by SHA"]
+        direction LR
+        CICD["ci · security · release<br/>catalog-refresh"]
+    end
+
+    subgraph L7["Agents — contracts + registry"]
+        direction LR
+        ORCHA["orchestrator (owner)"]
+        ENGA["engineering-agent"]
+        AUD["quality-auditor<br/>cannot write"]
+    end
+
+    GH --> ENG
+    VC --> ENG
+    CF --> ENG
+    ENG --> IDX
+    ENG --> MAN
+    ENG --> SRC
+    ENG --> PLAN
+
+    IDX --> API
+    SCHEMAS --> API
+    SHARED --> API
+    SCHEMAS --> WEB
+    SHARED --> WEB
+    API --> WEB
+    GATES --> API
+    TRACE --> API
+
+    ORCH -->|"subprocess, fixed argv"| ENG
+    ORCH --> GATES
+    ORCH --> TRACE
+    ORCH --> MANIFEST
+    REQ --> ORCH
+    APPROVAL --> ORCH
+
+    DOCS --> RAG
+    RAG -->|"citations or refusal"| WEB
+
+    CICD --> ORCH
+    CICD --> API
+    CICD --> WEB
+    CICD --> RAG
+
+    ORCHA --> ENGA
+    ENGA --> AUD
