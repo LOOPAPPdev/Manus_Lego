@@ -1,6 +1,6 @@
 # Quality gate report
 
-Generated: `2026-11-20T14:21:01Z` · Commit: `691f9cda8b32ec79c8180812583e44dfce789634` · Environment: `local`
+Generated: `2026-11-20T14:30:33Z` · Commit: `3baeeafc48abd199ed48c329c4da920748af36b4` · Environment: `local`
 Overall: **blocked**
 
 | Gate | Name | Status | Detail |
@@ -11,7 +11,7 @@ Overall: **blocked**
 | G3 | Security review and minimal reuse approved | **pass** | no secrets detected; agent permissions within allowlist |
 | G4 | Tests written and failing before implementation | **pass** | 38/38 tests passing |
 | G5 | Integration, security scans and documentation verified | **pass** | 39/39 tests passing |
-| G6 | Owner authorization for release and secrets | **blocked** | no recorded human approval for this commit; deployment and secret creation remain blocked (write docs/evidence/approvals/<id>.json with commit=691f9cd… and decision=approved) |
+| G6 | Owner authorization for release and secrets | **blocked** | no recorded human approval for this commit; deployment and secret creation remain blocked (write docs/evidence/approvals/<id>.json with commit=3baeeaf… and decision=approved) |
 
 ## How to read this
 

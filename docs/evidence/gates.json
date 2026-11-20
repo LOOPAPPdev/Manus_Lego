@@ -1,5 +1,5 @@
 {
-  "commit": "691f9cda8b32ec79c8180812583e44dfce789634",
+  "commit": "3baeeafc48abd199ed48c329c4da920748af36b4",
   "environment": "local",
   "gates": [
     {
@@ -92,7 +92,7 @@
       "status": "pass"
     },
     {
-      "detail": "no recorded human approval for this commit; deployment and secret creation remain blocked (write docs/evidence/approvals/<id>.json with commit=691f9cd… and decision=approved)",
+      "detail": "no recorded human approval for this commit; deployment and secret creation remain blocked (write docs/evidence/approvals/<id>.json with commit=3baeeaf… and decision=approved)",
       "evidence": [],
       "id": "G6",
       "name": "Owner authorization for release and secrets",
@@ -103,7 +103,7 @@
       "status": "blocked"
     }
   ],
-  "generated_at": "2026-11-20T14:21:01Z",
+  "generated_at": "2026-11-20T14:30:33Z",
   "overall": "blocked",
   "schema_version": "1.0.0"
 }
