@@ -1,0 +1,249 @@
+{
+  "generated_by": "tests/fixtures/generate_ranking_cases.py",
+  "engine": "scripts/lego_catalog.py::ranked",
+  "catalog_template_count": 42,
+  "cases": [
+    {
+      "query": "react authentication database",
+      "provider": "all",
+      "limit": 10,
+      "expected": [
+        {
+          "id": "cloudflare:seed:react-postgres-fullstack-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:react-router-hono-fullstack-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:react-router-postgres-ssr-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:react-router-starter-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:react-starter-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:vite-react-template",
+          "score": 9
+        }
+      ]
+    },
+    {
+      "query": "cloudflare d1",
+      "provider": "all",
+      "limit": 10,
+      "expected": [
+        {
+          "id": "cloudflare:seed:d1-starter-sessions-api-template",
+          "score": 13
+        },
+        {
+          "id": "cloudflare:seed:d1-template",
+          "score": 13
+        },
+        {
+          "id": "cloudflare:seed:agent-commerce-analytics-template",
+          "score": 4
+        },
+        {
+          "id": "cloudflare:seed:agent-visibility-template",
+          "score": 4
+        },
+        {
+          "id": "cloudflare:seed:ai-brand-visibility-template",
+          "score": 4
+        },
+        {
+          "id": "cloudflare:seed:astro-blog-starter-template",
+          "score": 4
+        },
+        {
+          "id": "cloudflare:seed:chanfana-openapi-template",
+          "score": 4
+        },
+        {
+          "id": "cloudflare:seed:commerce-llms-txt-template",
+          "score": 4
+        },
+        {
+          "id": "cloudflare:seed:containers-template",
+          "score": 4
+        },
+        {
+          "id": "cloudflare:seed:durable-chat-template",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "query": "astro blog",
+      "provider": "all",
+      "limit": 5,
+      "expected": [
+        {
+          "id": "cloudflare:seed:astro-blog-starter-template",
+          "score": 19
+        },
+        {
+          "id": "vercel:seed:https-vercel-com-templates-astro-astro-blog",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "query": "next js starter",
+      "provider": "all",
+      "limit": 10,
+      "expected": [
+        {
+          "id": "cloudflare:seed:next-starter-template",
+          "score": 9
+        }
+      ]
+    },
+    {
+      "query": "workers ai chat",
+      "provider": "all",
+      "limit": 10,
+      "expected": [
+        {
+          "id": "cloudflare:seed:ai-brand-visibility-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:durable-chat-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:llm-chat-app-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:workers-builds-notifications-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:workers-for-platforms-template",
+          "score": 9
+        }
+      ]
+    },
+    {
+      "query": "vectorize embedding",
+      "provider": "all",
+      "limit": 10,
+      "expected": []
+    },
+    {
+      "query": "postgres fullstack",
+      "provider": "all",
+      "limit": 10,
+      "expected": [
+        {
+          "id": "cloudflare:seed:react-postgres-fullstack-template",
+          "score": 18
+        },
+        {
+          "id": "cloudflare:seed:postgres-hyperdrive-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:react-router-hono-fullstack-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:react-router-postgres-ssr-template",
+          "score": 9
+        }
+      ]
+    },
+    {
+      "query": "svelte",
+      "provider": "all",
+      "limit": 5,
+      "expected": []
+    },
+    {
+      "query": "email routing",
+      "provider": "all",
+      "limit": 5,
+      "expected": [
+        {
+          "id": "cloudflare:seed:email-routing-template",
+          "score": 18
+        },
+        {
+          "id": "cloudflare:seed:email-sending-template",
+          "score": 9
+        }
+      ]
+    },
+    {
+      "query": "kubernetes operator golang",
+      "provider": "all",
+      "limit": 10,
+      "expected": []
+    },
+    {
+      "query": "react",
+      "provider": "cloudflare",
+      "limit": 5,
+      "expected": [
+        {
+          "id": "cloudflare:seed:react-postgres-fullstack-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:react-router-hono-fullstack-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:react-router-postgres-ssr-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:react-router-starter-template",
+          "score": 9
+        },
+        {
+          "id": "cloudflare:seed:react-starter-template",
+          "score": 9
+        }
+      ]
+    },
+    {
+      "query": "astro",
+      "provider": "vercel",
+      "limit": 5,
+      "expected": [
+        {
+          "id": "vercel:seed:https-vercel-com-templates-astro-astro-blog",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "query": "",
+      "provider": "all",
+      "limit": 3,
+      "expected": []
+    },
+    {
+      "query": "x402 proxy",
+      "provider": "all",
+      "limit": 3,
+      "expected": [
+        {
+          "id": "cloudflare:seed:x402-proxy-template",
+          "score": 18
+        }
+      ]
+    }
+  ]
+}
