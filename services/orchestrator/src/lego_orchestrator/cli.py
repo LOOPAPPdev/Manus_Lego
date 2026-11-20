@@ -61,7 +61,15 @@ def _run_pytest_suite(root: Path, label: str, targets: list[str], junit: Path) -
         [sys.executable, "-m", "pytest", *existing, f"--junitxml={junit}", "-q"],
         cwd=root,
         check=False,
+        capture_output=True,
+        text=True,
     )
+    # The command's stdout is the machine-readable report. The suite's own output goes to
+    # stderr so that `lego verify --run-tests > report.json` stays parseable.
+    if completed.stdout:
+        sys.stderr.write(completed.stdout)
+    if completed.stderr:
+        sys.stderr.write(completed.stderr)
     return {
         "label": label,
         "state": "passed" if completed.returncode == 0 else "failed",
