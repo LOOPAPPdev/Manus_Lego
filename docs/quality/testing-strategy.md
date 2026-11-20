@@ -48,6 +48,10 @@ disagree about what ran.
 6. **No browser end-to-end tests.** The API integration suite uses HTTP directly.
 7. **Container tests are static.** They read the Dockerfiles and compose file; no image is
    built or run in this environment.
+8. **The catalog engine is excluded from lint.** `scripts/` and `tests/test_lego_catalog.py`
+   are the preserved implementation of record and are verified by their own unittest suite
+   rather than by Ruff. The exclusion is declared in `ruff.toml`, and it means a style defect
+   can live in those files without CI objecting.
 
 Each gap is listed rather than hidden, because a testing strategy that claims full coverage
 is the first thing a reviewer stops believing.

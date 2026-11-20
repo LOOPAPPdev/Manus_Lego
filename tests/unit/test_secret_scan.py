@@ -65,9 +65,7 @@ def test_environment_files_are_not_tracked() -> None:
     assert "OPENROUTER_API_KEY=\n" in example, "the example must leave secrets empty"
 
 
-def test_planted_credential_is_detected(
-    tmp_path: Path, patterns: list[tuple[str, str]]
-) -> None:
+def test_planted_credential_is_detected(tmp_path: Path, patterns: list[tuple[str, str]]) -> None:
     """REQ-RV-003 — the scanner detects a planted credential, so a clean scan is meaningful."""
     repository = tmp_path / "planted"
     repository.mkdir()

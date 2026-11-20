@@ -95,6 +95,15 @@ jobs:
       - name: Test
         run: uv run --project services/${{ matrix.service }} pytest services/${{ matrix.service }}/tests -q
 
+      # The repository-level suites (tests/) live outside both projects and are executed by
+      # `lego verify --run-tests` in the gates job. They still need linting somewhere, and the
+      # orchestrator environment is the one that can import both packages.
+      - name: Lint repository-level suites
+        if: matrix.service == 'orchestrator'
+        run: |
+          uv run --project services/orchestrator ruff check tests
+          uv run --project services/orchestrator ruff format --check tests
+
   catalog:
     name: catalog and specification
     runs-on: ubuntu-24.04

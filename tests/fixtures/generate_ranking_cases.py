@@ -13,6 +13,7 @@ Regenerate after any intentional change to the ranking weights or tokenizer:
 A change to the fixture is a change to observable behaviour and must be
 reviewed as such (see docs/decisions/0004-shared-ranking-port.md).
 """
+
 from __future__ import annotations
 
 import json

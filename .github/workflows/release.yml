@@ -56,7 +56,7 @@ jobs:
       - run: pnpm exec turbo run build
       - run: uv sync --project services/orchestrator --frozen
 
-      - name: Gates must pass (G6 included: an approval record for this commit)
+      - name: "Gates must pass (G6 included: an approval record for this commit)"
         run: uv run --project services/orchestrator lego verify --run-tests --environment release
 
       - name: Attach gate report

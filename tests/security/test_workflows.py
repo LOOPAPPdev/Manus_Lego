@@ -36,6 +36,18 @@ def workflows() -> list[Path]:
     return files
 
 
+def test_every_workflow_is_parseable_yaml(workflows: list[Path]) -> None:
+    """REQ-PS-003 — a workflow GitHub cannot parse is a control that silently does not run.
+
+    An unquoted `name: ... (G6 included: ...)` made release.yml invalid YAML: GitHub would
+    have refused the whole file, and every release control in it would simply not exist.
+    """
+    for path in workflows:
+        document = yaml.safe_load(path.read_text(encoding="utf-8"))
+        assert isinstance(document, dict), f"{path.name} must be a YAML mapping"
+        assert document.get("jobs"), f"{path.name} declares no jobs"
+
+
 def test_actions_are_pinned_to_commit_shas(workflows: list[Path]) -> None:
     """REQ-PS-003 — a mutable tag can be repointed; a commit SHA cannot."""
     offenders: list[str] = []
@@ -78,7 +90,9 @@ def test_workflows_declare_minimal_permissions(workflows: list[Path]) -> None:
 
 def test_no_pull_request_target(workflows: list[Path]) -> None:
     """REQ-PW-006 — pull_request_target exposes secrets to fork code."""
-    offenders = [workflow.name for workflow in workflows if "pull_request_target" in workflow.read_text(encoding="utf-8")]
+    offenders = [
+        workflow.name for workflow in workflows if "pull_request_target" in workflow.read_text(encoding="utf-8")
+    ]
     assert not offenders, f"pull_request_target is forbidden: {offenders}"
 
 
@@ -96,7 +110,9 @@ def test_dependabot_covers_every_ecosystem() -> None:
         if entry["package-ecosystem"] == "uv"
     }
     assert {"services/orchestrator", "services/rag"} <= directories, directories
-    assert all(entry.get("schedule", {}).get("interval") in {"daily", "weekly", "monthly"} for entry in document["updates"])
+    assert all(
+        entry.get("schedule", {}).get("interval") in {"daily", "weekly", "monthly"} for entry in document["updates"]
+    )
 
 
 def test_security_workflow_runs_codeql_and_scans_containers() -> None:
@@ -131,7 +147,7 @@ def test_catalog_refresh_opens_a_pull_request() -> None:
 
     assert "workflow_dispatch" in text, "the refresh is human-triggered by design"
     assert "contents: write" in text
-    assert "git push origin \"$branch\"" in text or "git push" in text
+    assert 'git push origin "$branch"' in text or "git push" in text
     assert "gh pr create" in text, "the refreshed index must arrive as a reviewable PR"
     assert "secrets.GITHUB_TOKEN" in text or "secrets.CATALOG_TOKEN" in text
     assert "git push origin main" not in text, "never push the index directly to the default branch"

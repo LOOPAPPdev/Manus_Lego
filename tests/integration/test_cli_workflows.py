@@ -52,11 +52,7 @@ def sandbox(tmp_path: Path) -> Path:
 
 
 def _lego(repository: Path, *args: str) -> subprocess.CompletedProcess[str]:
-    script = (
-        "import sys;"
-        "from lego_orchestrator.cli import main;"
-        "sys.exit(main(sys.argv[1:]))"
-    )
+    script = "import sys;from lego_orchestrator.cli import main;sys.exit(main(sys.argv[1:]))"
     env = {**os.environ, "LEGO_REPO_ROOT": str(repository), "PYTHONWARNINGS": "ignore"}
     return subprocess.run(
         [sys.executable, "-c", script, *args],

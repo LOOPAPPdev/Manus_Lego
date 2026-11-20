@@ -1,0 +1,109 @@
+{
+  "commit": "c0981c4c6fd0421d8b8211ee15ff1835feb8ad42",
+  "environment": "local",
+  "gates": [
+    {
+      "detail": "17 requirements with acceptance criteria",
+      "evidence": [
+        "docs/specifications/requirements.md",
+        "docs/specifications/traceability.yaml"
+      ],
+      "id": "G0",
+      "name": "Specification and boundaries approved",
+      "requirement_ids": [
+        "REQ-PO-001",
+        "REQ-PO-002",
+        "REQ-PO-003"
+      ],
+      "status": "pass"
+    },
+    {
+      "detail": "catalog provenance validation passed",
+      "evidence": [
+        "catalog/index.json",
+        "catalog/sources.json"
+      ],
+      "id": "G1",
+      "name": "Source, commit, license and provenance verified",
+      "requirement_ids": [
+        "REQ-PS-002",
+        "REQ-PW-002"
+      ],
+      "status": "pass"
+    },
+    {
+      "detail": "contracts and decisions are consistent with the catalog",
+      "evidence": [
+        "schemas/template.schema.json",
+        "docs/decisions"
+      ],
+      "id": "G2",
+      "name": "Runtime, dependency and platform compatibility checked",
+      "requirement_ids": [
+        "REQ-PW-001",
+        "REQ-PO-004"
+      ],
+      "status": "pass"
+    },
+    {
+      "detail": "no secrets detected; agent permissions within allowlist",
+      "evidence": [
+        "config/security.yaml",
+        "security-scan:clean",
+        "config/TEAMSCHEMA.yaml"
+      ],
+      "id": "G3",
+      "name": "Security review and minimal reuse approved",
+      "requirement_ids": [
+        "REQ-PS-001",
+        "REQ-PW-003",
+        "REQ-RV-003"
+      ],
+      "status": "pass"
+    },
+    {
+      "detail": "36/36 tests passing",
+      "evidence": [
+        "/home/ubuntu/work/Manus_Lego/reports/junit/unit.xml"
+      ],
+      "id": "G4",
+      "name": "Tests written and failing before implementation",
+      "requirement_ids": [
+        "REQ-PW-004"
+      ],
+      "status": "pass"
+    },
+    {
+      "detail": "37/37 tests passing",
+      "evidence": [
+        "/home/ubuntu/work/Manus_Lego/reports/junit/integration.xml",
+        "/home/ubuntu/work/Manus_Lego/reports/junit/security.xml",
+        "docs/architecture.mmd",
+        "docs/security/threat-model.md",
+        "docs/operations/runbook.md"
+      ],
+      "id": "G5",
+      "name": "Integration, security scans and documentation verified",
+      "requirement_ids": [
+        "REQ-PW-005",
+        "REQ-PW-006",
+        "REQ-RV-001"
+      ],
+      "status": "pass"
+    },
+    {
+      "detail": "no recorded human approval for this commit; deployment and secret creation remain blocked (write docs/evidence/approvals/<id>.json with commit=c0981c4… and decision=approved)",
+      "evidence": [],
+      "id": "G6",
+      "name": "Owner authorization for release and secrets",
+      "requirement_ids": [
+        "REQ-PS-003",
+        "REQ-PO-005"
+      ],
+      "status": "blocked"
+    }
+  ],
+  "generated_at": "2026-11-20T14:11:29Z",
+  "overall": "blocked",
+  "schema_version": "1.0.0"
+}

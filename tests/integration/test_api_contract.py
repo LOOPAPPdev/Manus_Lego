@@ -61,7 +61,7 @@ def base_url(tmp_path_factory: pytest.TempPathFactory):
             if process.poll() is not None:
                 break
             try:
-                with urllib.request.urlopen(f"{url}/health", timeout=1) as response:  # noqa: S310
+                with urllib.request.urlopen(f"{url}/health", timeout=1) as response:
                     if response.status == 200:
                         break
             except (urllib.error.URLError, TimeoutError):
@@ -81,9 +81,9 @@ def base_url(tmp_path_factory: pytest.TempPathFactory):
 
 
 def _call(url: str, path: str, method: str = "GET") -> tuple[int, dict[str, str], bytes]:
-    request = urllib.request.Request(f"{url}{path}", method=method)  # noqa: S310
+    request = urllib.request.Request(f"{url}{path}", method=method)
     try:
-        with urllib.request.urlopen(request, timeout=5) as response:  # noqa: S310
+        with urllib.request.urlopen(request, timeout=5) as response:
             return response.status, dict(response.headers), response.read()
     except urllib.error.HTTPError as error:
         return error.code, dict(error.headers), error.read()

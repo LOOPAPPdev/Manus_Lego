@@ -92,10 +92,14 @@ Severity follows CVSS v3.1 bands. SLAs are calendar days from triage to a fix in
 |---|---|---|---|---|---|---|---|
 | VULN-0001 | 2026-11-20 | Low | `config/security.yaml` | The `cloudflare_token` pattern matched any 40-character string followed by a dot, producing false positives in vendored files | Tightened to require the variable name as an anchor | (this change) | 2026-11-20 |
 | VULN-0002 | 2026-11-20 | Medium | `services/orchestrator/catalog_engine.py` | `--output` was passed after the engine subcommand, so every engine call exited 2 with empty stdout | Moved the global flag before the subcommand; guarded by a unit test | (this change) | 2026-11-20 |
+| VULN-0003 | 2026-11-20 | High | `.github/workflows/release.yml` | A step name containing `(G6 included: ...)` was unquoted, so the file was not valid YAML and GitHub would have rejected the entire release workflow — every release control in it would silently not exist | Quoted the step name; added a test that parses every workflow as YAML | (this change) | 2026-11-20 |
+| VULN-0004 | 2026-11-20 | Medium | `services/orchestrator/cli.py` | `lego verify --run-tests` inherited the child pytest stdout, so the JSON gate report was not parseable exactly in the mode that produces it | Captured the child output and forwarded it to stderr; regression test pins stdout purity | (this change) | 2026-11-20 |
+| VULN-0005 | 2026-11-20 | Medium | `config/security.yaml`, `tests/unit/test_secret_scan.py` | The secret scan allowlisted `**/*.md`, hiding any credential pasted into documentation; the scan's own fixture also contained a literal credential-shaped string that flagged the repository once the test file was tracked | Allowlist scoped to `tests/security/**`; fixture assembled at runtime | (this change) | 2026-11-20 |
 
-The two entries above are real defects found by the test suite during this work. They are
-recorded here rather than quietly fixed, because a register that is always empty is not
-evidence of anything.
+The entries above are real defects found while building and testing this work: one by the
+test suite, one by the CLI refusing to be parsed, one by a lint pass and one by committing
+the tests. They are recorded rather than quietly fixed, because a register that is always
+empty is not evidence of anything.
 
 ## 7. Known limitations
 

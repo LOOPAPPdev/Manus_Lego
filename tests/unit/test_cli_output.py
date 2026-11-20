@@ -5,6 +5,7 @@ output were inherited, a caller doing `lego verify --run-tests > report.json`
 would get a file that no parser accepts, and the gate result would silently
 become unreadable exactly when it matters.
 """
+
 from __future__ import annotations
 
 import subprocess
@@ -23,9 +24,7 @@ class _Completed:
         self.stderr = stderr
 
 
-def test_run_pytest_suite_sends_suite_output_to_stderr(
-    tmp_path: Path, monkeypatch: Any, capsys: Any
-) -> None:
+def test_run_pytest_suite_sends_suite_output_to_stderr(tmp_path: Path, monkeypatch: Any, capsys: Any) -> None:
     """The suite's chatter is forwarded to stderr; stdout stays empty."""
     targets = tmp_path / "tests" / "unit"
     targets.mkdir(parents=True)
@@ -49,9 +48,7 @@ def test_run_pytest_suite_sends_suite_output_to_stderr(
     assert result["junit"] == junit.as_posix()
 
 
-def test_run_pytest_suite_marks_failures_and_skips_absent_targets(
-    tmp_path: Path, monkeypatch: Any
-) -> None:
+def test_run_pytest_suite_marks_failures_and_skips_absent_targets(tmp_path: Path, monkeypatch: Any) -> None:
     """A failing suite is reported as failed, and a missing target is skipped, not passed."""
     (tmp_path / "tests" / "unit").mkdir(parents=True)
     monkeypatch.setattr(subprocess, "run", lambda *a, **k: _Completed(1, "1 failed\n", ""))

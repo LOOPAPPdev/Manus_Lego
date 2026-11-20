@@ -1,0 +1,34 @@
+{
+  "artifact_count": 5,
+  "artifacts": [
+    {
+      "bytes": 1710,
+      "path": "docs/evidence/approvals/README.md",
+      "sha256": "8b603baa9a4c685fe62aac579e9a5c444ace1093e9f68857c09b066a3c50b7ea"
+    },
+    {
+      "bytes": 2988,
+      "path": "docs/evidence/gates.json",
+      "sha256": "5952061a84de83835ace5d8031498f6b5a117fd9564b3e350d4a7c5a3d024a59"
+    },
+    {
+      "bytes": 1613,
+      "path": "docs/evidence/gates.md",
+      "sha256": "3d74410ad826b9248081931db430cf8bb1214dd1bd658952b0a4eb1529e1013e"
+    },
+    {
+      "bytes": 38083,
+      "path": "docs/evidence/traceability.json",
+      "sha256": "5bd3feb8f849cdca5cffa0b946741b575120c59a37c56bfc0099bcb22beb33a6"
+    },
+    {
+      "bytes": 2105,
+      "path": "docs/evidence/traceability.md",
+      "sha256": "1ac9b35e98f0912e1a8876332728681b55a993b79884afd916f5d5c190ef4d8c"
+    }
+  ],
+  "commit": "c0981c4c6fd0421d8b8211ee15ff1835feb8ad42",
+  "generated_at": "2026-11-20T14:11:29Z",
+  "producer": "lego report",
+  "schema_version": "1.0.0"
+}
