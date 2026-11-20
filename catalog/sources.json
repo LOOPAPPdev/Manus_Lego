@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "strategy": "public_catalog_plus_official_monorepos",
+  "github_sources": [
+    {"provider":"cloudflare","repo":"cloudflare/templates","root":"https://github.com/cloudflare/templates","curated_manifest":"templates.json"},
+    {"provider":"vercel","repo":"vercel/examples","root":"https://github.com/vercel/examples","metadata":"README frontmatter and internal/fields.json"}
+  ],
+  "vercel_categories": [
+    "https://vercel.com/templates/ai",
+    "https://vercel.com/templates/authentication",
+    "https://vercel.com/templates/backend",
+    "https://vercel.com/templates/blog",
+    "https://vercel.com/templates/cms",
+    "https://vercel.com/templates/cron",
+    "https://vercel.com/templates/ecommerce",
+    "https://vercel.com/templates/marketing-sites",
+    "https://vercel.com/templates/monorepos",
+    "https://vercel.com/templates/saas",
+    "https://vercel.com/templates/security",
+    "https://vercel.com/templates/starter"
+  ],
+  "vercel_sitemaps": ["https://vercel.com/sitemap.xml"],
+  "private_dashboard_urls": "NEVER crawl or store; map to public GitHub source by slug",
+  "notes": [
+    "Cloudflare templates.json is curated source metadata; repository tree is source for file paths.",
+    "Vercel public gallery includes third-party repositories outside vercel/examples.",
+    "No public, guaranteed-complete machine-readable Vercel template API verified.",
+    "Discovery completeness is not assumed when galleries paginate or render dynamically."
+  ]
+}
