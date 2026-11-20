@@ -30,7 +30,14 @@ the AI Risk Management Framework (AI 100-1), and SP 800-190.
 | PW.9 — Configure software to have secure settings by default | Read-only API, security headers, rate limit, non-root containers | `apps/api/src/server.ts`, `infrastructure/docker/compose.yaml` | **Full** |
 | RV.1 — Identify and confirm vulnerabilities on an ongoing basis | CodeQL, Dependabot (npm, actions, uv), Trivy, scheduled scans | `.github/workflows/security.yml`, `.github/dependabot.yml` | **Partial** — no VEX, no runtime SBOM |
 | RV.2 — Assess, prioritise and remediate vulnerabilities | Register with severities, SLAs and named decision maker | `docs/operations/runbook.md` §6 | **Full** as a process; two entries recorded |
-| RV.3 — Analyse vulnerabilities to identify root causes | Each fix lands with a test that would have caught it | `tests/`, register entries VULN-0001/0002 | **Partial** — no formal RCA template |
+| RV.3 — Analyse vulnerabilities to identify root causes | Each fix lands with a test that would have caught it | `tests/`, register entries VULN-0001…0005 | **Partial** — no formal RCA template |
+
+Dependency review deserves its own line because it is the one control that is configured and
+*cannot currently execute*: the action needs the dependency graph and GitHub Advanced
+Security, and this private repository has neither, so the API returns 403. The workflow now
+probes availability first, annotates the run with a warning and states the absence in the job
+summary, instead of failing red on every pull request until people stop reading the checks.
+The honest status of that control is **absent**, not "passing".
 
 ## 2. SP 800-204D (software supply chain)
 

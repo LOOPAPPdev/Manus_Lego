@@ -115,6 +115,25 @@ def test_dependabot_covers_every_ecosystem() -> None:
     )
 
 
+def test_dependency_review_is_guarded_by_an_availability_probe() -> None:
+    """REQ-RV-001 — a control that cannot run must say so, not fail silently or pass silently.
+
+    Dependency review needs the dependency graph and GitHub Advanced Security. Without the
+    probe, the action fails with 403 on every pull request, which trains reviewers to ignore
+    red checks; with the probe, the job states whether the control actually executed.
+    """
+    document = yaml.safe_load((WORKFLOW_DIR / "security.yml").read_text(encoding="utf-8"))
+    steps = document["jobs"]["dependency-review"]["steps"]
+    text = (WORKFLOW_DIR / "security.yml").read_text(encoding="utf-8")
+
+    assert any(step.get("id") == "probe" for step in steps), "the job must probe availability first"
+    review = [step for step in steps if str(step.get("uses", "")).startswith("actions/dependency-review-action")]
+    assert review, "the dependency review action must be present"
+    assert review[0]["if"] == "steps.probe.outputs.available == 'true'", "the action must be conditional"
+    assert "::warning" in text, "an unavailable control must surface a warning annotation"
+    assert "GITHUB_STEP_SUMMARY" in text, "and must explain itself in the job summary"
+
+
 def test_security_workflow_runs_codeql_and_scans_containers() -> None:
     """REQ-RV-001 — static analysis and image scanning run on a schedule and on PRs."""
     path = WORKFLOW_DIR / "security.yml"

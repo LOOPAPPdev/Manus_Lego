@@ -104,6 +104,10 @@ empty is not evidence of anything.
 ## 7. Known limitations
 
 - The rate limiter is in-process; it does not coordinate across replicas.
+- Dependency review cannot run on this repository: the dependency graph and GitHub Advanced
+  Security are not available, so the compare API returns 403. The job probes first and reports
+  the control as absent rather than failing red forever. Enabling it is a repository setting,
+  not a code change.
 - The retrieval embedder is a deterministic hashing stand-in, not a semantic model.
 - Container images are not signed, and no admission controller enforces the hardening.
 - Evidence files are produced locally and uploaded by CI; they are not committed on every
