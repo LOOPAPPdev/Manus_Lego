@@ -1,6 +1,6 @@
 # Requirement traceability
 
-Generated: `2026-11-20T14:30:33Z` · Commit: `3baeeafc48abd199ed48c329c4da920748af36b4`
+Generated: `2026-11-20T14:41:11Z` · Commit: `44f9b44d360eb858fb5a97a3aab0b78fee4bc0a1`
 
 | Requirement | Practice | Title | Status | Tests | Evidence |
 |---|---|---|---|---|---|
