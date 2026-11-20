@@ -1,6 +1,6 @@
 # Requirement traceability
 
-Generated: `2026-11-20T14:15:02Z` · Commit: `ad838bc1eba9c60b87cb5ecf90786884253c9b46`
+Generated: `2026-11-20T14:21:01Z` · Commit: `691f9cda8b32ec79c8180812583e44dfce789634`
 
 | Requirement | Practice | Title | Status | Tests | Evidence |
 |---|---|---|---|---|---|
@@ -18,7 +18,7 @@ Generated: `2026-11-20T14:15:02Z` · Commit: `ad838bc1eba9c60b87cb5ecf9078688425
 | `REQ-PW-004` | PW | Behaviour changes are covered by automated tests | verified | 6/6 | 1 |
 | `REQ-PW-005` | PW | Independent verification precedes merge | verified | 5/5 | 1 |
 | `REQ-PW-006` | PW | Secure defaults in services and containers | verified | 10/10 | 1 |
-| `REQ-RV-001` | RV | Continuous dependency and static analysis | verified | 2/2 | 1 |
+| `REQ-RV-001` | RV | Continuous dependency and static analysis | verified | 3/3 | 1 |
 | `REQ-RV-002` | RV | Vulnerability intake and remediation are recorded | verified | 1/1 | 1 |
 | `REQ-RV-003` | RV | Secret exposure is detected and handled | verified | 2/2 | 1 |
 
@@ -29,6 +29,6 @@ Generated: `2026-11-20T14:15:02Z` · Commit: `ad838bc1eba9c60b87cb5ecf9078688425
 - Partial: **0**
 - Unverified: **0**
 - Failing: **0**
-- Tests executed and linked: **92**
+- Tests executed and linked: **93**
 
 > Statuses are computed from repository state and the executed JUnit report. `partial` means at least one of implementation, passing test or evidence is missing. This table maps NIST SSDF practices to controls; it is not a certification.
