@@ -12,7 +12,7 @@ pretend otherwise.
 |---|---|
 | Install JS dependencies | `pnpm install --frozen-lockfile` |
 | Install a Python service | `uv sync --project services/orchestrator` (or `services/rag`) |
-| Install optional Lang integrations | `uv sync --project services/orchestrator --group lang` |
+| Install optional Lang integrations | `uv sync --project services/orchestrator --group lang` (LangGraph, LangChain, LangSmith, MCP, Deep Agents) |
 | Full local verification | `pnpm exec turbo run lint typecheck build test` |
 | Gate evaluation | `uv run --project services/orchestrator lego verify --run-tests` |
 | Traceability + evidence manifest | `uv run --project services/orchestrator lego report` |
@@ -113,3 +113,4 @@ empty is not evidence of anything.
 - Container images are not signed, and no admission controller enforces the hardening.
 - Evidence files are produced locally and uploaded by CI; they are not committed on every
   run, so a stale `docs/evidence/gates.json` can lag behind `main`.
+| Install optional Lang integrations | `uv sync --project services/orchestrator --group lang` (LangGraph, LangChain, LangSmith, MCP and Deep Agents) |
