@@ -20,6 +20,11 @@ dev = [
   "pytest-cov>=5.0,<6",
   "ruff>=0.7,<1",
 ]
+lang = [
+    "langchain>=1,<2",
+    "langgraph>=1,<2",
+    "langsmith>=0.4,<1",
+]
 
 [build-system]
 requires = ["hatchling"]

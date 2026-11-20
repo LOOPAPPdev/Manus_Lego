@@ -67,6 +67,8 @@ pnpm exec turbo run lint typecheck build test      # 20 tasks, one command
 
 uv sync --project services/orchestrator
 uv sync --project services/rag
+# Optional LangGraph/LangChain/LangSmith integration dependencies:
+uv sync --project services/orchestrator --group lang
 
 docker compose -f infrastructure/docker/compose.yaml up --build
 # web → http://localhost:8080   api → http://localhost:8787/health

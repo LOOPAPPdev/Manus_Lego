@@ -12,6 +12,7 @@ pretend otherwise.
 |---|---|
 | Install JS dependencies | `pnpm install --frozen-lockfile` |
 | Install a Python service | `uv sync --project services/orchestrator` (or `services/rag`) |
+| Install optional Lang integrations | `uv sync --project services/orchestrator --group lang` |
 | Full local verification | `pnpm exec turbo run lint typecheck build test` |
 | Gate evaluation | `uv run --project services/orchestrator lego verify --run-tests` |
 | Traceability + evidence manifest | `uv run --project services/orchestrator lego report` |
