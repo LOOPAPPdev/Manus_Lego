@@ -20,6 +20,20 @@ python3 scripts/lego_catalog.py plan "react authentication database" --limit 5
 
 In Claude Code, use `/agenteorchsenior build a BPMS dashboard using Cloudflare` and then `/lego react database auth`. Claude Code project skills live at `.claude/skills/agenteorchsenior/SKILL.md` and `.claude/skills/lego/SKILL.md`; these are **not Python shell commands**. The Python executable is `scripts/lego_catalog.py`.
 
+
+## One Python command for Manus orchestration
+
+```bash
+# One call: run offline tests, refresh public sources, rank and create a LEGO plan
+python3 scripts/agenteorchsenior.py pipeline "react authentication database" --max-enrich 30 --max-pages 100
+
+# Work without internet: verify existing references and prepare a proposal
+python3 scripts/agenteorchsenior.py check
+python3 scripts/agenteorchsenior.py select "react authentication database"
+```
+
+The Python command is a **deterministic pipeline**, not an AI agent SDK. Manus must read `AGENTS.md` and invoke the script using its own permitted execution mechanism; Claude Code recognizes the two project slash-command skills. A plan **never authorizes** source import, a production deployment, or credential changes. If remote sources fail, `pipeline` exits nonzero and does not describe an inventory as complete.
+
 ## Current bootstrap inventory
 This delivery includes **41 curated Cloudflare template names** from official `cloudflare/templates/templates.json` and **one Vercel Astro Blog reference**. These 42 records are *discovery-only* and have no pinned commit, full source tree or complete dependency analysis yet. The `index` command upgrades entries when GitHub API access is available. Regenerate the initial seed with `python3 scripts/bootstrap_catalog.py` (overwrites existing catalog data, so use only for a fresh bootstrap).
 
@@ -38,6 +52,7 @@ This delivery includes **41 curated Cloudflare template names** from official `c
 | `catalog/vercel_gallery_links.json` | Public Vercel gallery page-to-GitHub references |
 | `schemas/template.schema.json` | Template data contract |
 | `scripts/lego_catalog.py` | Pure-Python API indexer + query + plan + validate |
+| `scripts/agenteorchsenior.py` | Single-entry Python orchestration wrapper for Manus |
 | `tests/` | Offline unit and end-to-end fixture tests |
 | `.claude/skills/` | `/agenteorchsenior` and `/lego` workflows |
 | `.github/workflows/catalog-refresh.yml` | Manual GitHub Actions refresh via PR |
