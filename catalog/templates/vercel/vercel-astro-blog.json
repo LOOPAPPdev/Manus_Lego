@@ -1,0 +1,57 @@
+{
+  "catalog_url": "https://vercel.com/templates/astro/astro-blog",
+  "commands": {},
+  "description": "An ultra-minimal personal site and blog built with Astro (Vercel gallery description)",
+  "features": [],
+  "id": "vercel:seed:https-vercel-com-templates-astro-astro-blog",
+  "inventory": {
+    "complete": false,
+    "file_count": 0,
+    "files": [],
+    "metadata_paths": {}
+  },
+  "license": {
+    "file_path": null,
+    "status": "needs_review"
+  },
+  "platform_metadata": {},
+  "provenance": {
+    "feature_basis": "not_inspected",
+    "inspected_files": [],
+    "origin": "vercel_public_gallery",
+    "source_ref": null
+  },
+  "provider": "vercel",
+  "readme": {
+    "excerpt": null,
+    "path": null,
+    "url": null
+  },
+  "schema_version": "1.0.0",
+  "source": {
+    "commit": null,
+    "path": "",
+    "repository": "withastro/astro",
+    "repository_url": "https://github.com/withastro/astro",
+    "source_url": "https://github.com/withastro/astro"
+  },
+  "stack": {
+    "bindings": [],
+    "dependencies": {},
+    "ecosystems": [],
+    "frameworks": [],
+    "languages": [],
+    "package_manager": "unknown",
+    "products": [],
+    "runtime_config": []
+  },
+  "status": "discovered_unverified",
+  "tags": [
+    "",
+    "vercel"
+  ],
+  "title": "Astro Blog",
+  "warnings": [
+    "Bootstrap discovery only; run live index to pin a commit and inspect files"
+  ]
+}

@@ -1,0 +1,48 @@
+name: Manus LEGO catalog refresh (manual)
+on:
+  workflow_dispatch:
+    inputs:
+      max_enrich:
+        description: Number of templates per monorepo to enrich
+        required: false
+        default: '25'
+      max_pages:
+        description: Maximum Vercel template detail pages to inspect
+        required: false
+        default: '100'
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout (pinned action)
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Run offline unit tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Build catalog from public sources
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENRICH: ${{ inputs.max_enrich }}
+          PAGES: ${{ inputs.max_pages }}
+        run: |
+          python3 scripts/lego_catalog.py index --gallery --max-enrich "$ENRICH" --max-pages "$PAGES"
+          python3 scripts/lego_catalog.py validate
+      - name: Open inventory PR when data changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(git status --porcelain catalog)" ]; then
+            echo 'No catalog changes.'
+            exit 0
+          fi
+          branch="automation/lego-catalog-${GITHUB_RUN_ID}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout -b "$branch"
+          git add catalog
+          git commit -m 'chore(catalog): update Cloudflare and Vercel source references'
+          git push origin "$branch"
+          gh pr create --base "${GITHUB_REF_NAME}" --head "$branch" --title 'chore(catalog): refresh template references' --body 'Read-only public source inventory refresh. Review completeness, licenses, source trust and rate-limit warnings before merge.'
