@@ -71,11 +71,13 @@ def test_planted_credential_is_detected(
     """REQ-RV-003 — the scanner detects a planted credential, so a clean scan is meaningful."""
     repository = tmp_path / "planted"
     repository.mkdir()
-    (repository / "settings.py").write_text(
-        'AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE"\n'
-        'GITHUB_TOKEN = "ghp_012345678901234567890123456789012345"\n',
-        encoding="utf-8",
+    # Assembled at runtime: this file must not itself contain a credential-shaped literal,
+    # otherwise the repository scan (correctly) flags its own test fixture.
+    planted = (
+        'AWS_ACCESS_KEY_ID = "' + "AKIA" + 'IOSFODNN7EXAMPLE"\n'
+        'GITHUB_TOKEN = "' + "ghp_" + '012345678901234567890123456789012345"\n'
     )
+    (repository / "settings.py").write_text(planted, encoding="utf-8")
     subprocess.run(["git", "init", "-q"], cwd=repository, check=True)
     subprocess.run(["git", "add", "."], cwd=repository, check=True)
 

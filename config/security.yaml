@@ -54,8 +54,10 @@ secrets:
       - name: cloudflare_token
         # Anchored on the variable name: a bare 40-character string is not a token.
         regex: "(?:CLOUDFLARE_(?:API_)?TOKEN|CF_API_TOKEN)\\s*[:=]\\s*[\"']?[A-Za-z0-9_-]{40}"
+    # Scoped to the fixtures that must contain credential-shaped strings. Documentation is
+    # deliberately NOT allowlisted: a token pasted into a README is exactly what this control
+    # exists to catch.
     allowlist_paths:
-      - "**/*.md"
       - "tests/security/**"
 
 network:
